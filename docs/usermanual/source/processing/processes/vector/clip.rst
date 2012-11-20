@@ -35,7 +35,7 @@ Inputs
      - :ref:`SimpleFeatureCollection <processing.processes.formats.fcin>`
      - Required
    * - ``clip``
-     - Clipping geometryâ€”Same CRS as input features
+     - Clipping geometry—Same CRS as input features
      - Geometry
      - Required
 

@@ -55,7 +55,7 @@ Inputs
      - String
      - Optional (any number)
    * - ``intersectionMode``
-     - Specifies geometry computed for intersecting features. Options ``INTERSECTION`` (default)â€”Computes the spatial intersection of the inputs, ``FIRST``â€”Copies geometries directly from the first input feature collection, ``SECOND``â€”Copies geometries directly from the second feature collection
+     - Specifies geometry computed for intersecting features. Options ``INTERSECTION`` (default)—Computes the spatial intersection of the inputs, ``FIRST``—Copies geometries directly from the first input feature collection, ``SECOND``—Copies geometries directly from the second feature collection
      - IntersectionMode
      - Optional
    * - ``percentagesEnabled``

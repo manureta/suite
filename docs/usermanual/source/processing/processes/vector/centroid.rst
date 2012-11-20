@@ -37,7 +37,7 @@ Inputs
      - Usage
    * - ``features``
      - Input features
-     - FeatureCollection
+     - :ref:`FeatureCollection <processing.processes.formats.fcin>`
      - Required
 
 Outputs
@@ -51,7 +51,7 @@ Outputs
      - Type
    * - ``result``
      - Centroids of input features
-     - FeatureCollection
+     - :ref:`FeatureCollection <processing.processes.formats.fcout>`
 
 Usage notes
 -----------
@@ -65,6 +65,8 @@ Examples
 Finding the centroids of the polygons in the ``medford:zoning`` layer:
 
   - ``features``: ``medford:zoning``
+
+  :download:`Download complete XMl request <xml/centroidexample.xml>`.
 
   .. figure:: img/centroid-med.png
   

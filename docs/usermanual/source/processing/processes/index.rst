@@ -9,7 +9,7 @@ This section will highlight some of the common WPS processes available with the 
 
 .. todo:: Three categories are introduced but only only one is fully documented. Either we have to acknowledge this or re-word to remove confusion.
 
-Processes can operate on different input formatsâ€”**vector**, **raster**, and **geometry**.
+Processes can operate on different input formats—**vector**, **raster**, and **geometry**.
 
 .. toctree::
    :maxdepth: 2

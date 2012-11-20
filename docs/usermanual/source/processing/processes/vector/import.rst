@@ -31,27 +31,27 @@ Inputs
      - :ref:`SimpleFeatureCollection <processing.processes.formats.fcin>`
      - Required
    * - ``workspace``
-     - Target workspaceâ€”Default is the system default
+     - Target workspace—Default is the system default
      - String
      - Optional
    * - ``store``
-     - Target storeâ€”Default is the workspace default
+     - Target store—Default is the workspace default
      - String
      - Optional
    * - ``name``
-     - Name of the new featuretypeâ€”Default is the name of the features in the collection
+     - Name of the new featuretype—Default is the name of the features in the collection
      - String
      - Optional
    * - ``srs``
-     - Target coordinate reference systemâ€”Default is based on the source when possible
+     - Target coordinate reference system—Default is based on the source when possible
      - CoordinateReferenceSystem
      - Optional
    * - ``srsHandling``
-     - Desired SRS handlingâ€”Options are FORCE_DECLARED (default), REPROJECT_TO_DECLARED or NONE
+     - Desired SRS handling—Options are FORCE_DECLARED (default), REPROJECT_TO_DECLARED or NONE
      - ProjectionPolicy
      - Optional
    * - ``styleName``
-     - Name of the style to be associated with the layerâ€”Default is standard geometry-specific style
+     - Name of the style to be associated with the layer—Default is standard geometry-specific style
      - String
      - Optional
 

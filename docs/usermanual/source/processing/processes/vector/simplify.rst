@@ -36,7 +36,7 @@ Inputs
      - :ref:`SimpleFeatureCollection <processing.processes.formats.fcin>`
      - Required
    * - ``distance``
-     - Simplification distance toleranceâ€”Must be non-negative
+	     - Simplification distance tolerance—Must be non-negative
      - double
      - Required
    * - ``preserveTopology``
@@ -100,9 +100,4 @@ The following illustration shows the different outputs. The original features ar
 .. figure:: img/simplifyexample.png
 
    *gs:Simplify example output*
-
-
-.. The following example show the differences between using the default simplifying algorithm, with no topology preserving, and the alternative one that ensures that topology is preserved.
-
-.. any ideas for this??
 
