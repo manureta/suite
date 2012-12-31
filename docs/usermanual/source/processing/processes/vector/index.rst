@@ -3,7 +3,9 @@
 Vector processes
 ================
 
-This section describes some of the vector processes available with the OpenGeo Suite.
+.. warning:: Document status: **Draft**
+
+This section describes the vector processes available with the OpenGeo Suite.
 
 .. toctree::
    :maxdepth: 2
@@ -16,4 +18,5 @@ This section describes some of the vector processes available with the OpenGeo S
    simplify
    transform
    unionfc
-
+   aggregate
+   bounds
