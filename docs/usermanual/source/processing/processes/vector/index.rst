@@ -20,3 +20,4 @@ This section describes the vector processes available with the OpenGeo Suite.
    unionfc
    aggregate
    bounds
+   collectgeoms
