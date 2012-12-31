@@ -1,6 +1,6 @@
 .. _processing.processes.vector.grid:
 
-.. warning:: Document Status: Requires technical review
+.. warning:: Document Status: **Requires copyedit review (MP)**
 
 Grid
 ====
@@ -10,13 +10,7 @@ Description
 
 The ``gs:Grid`` process creates a feature collection with a regular grid of polygons covering a given area.
 
-Polygons can be rectangular or hexagonal and they can have spacing between them of be contiguous, so every point in the defined area to cover belongs to one and only one of the resulting polygons. In this case, the resulting polygons will form a space partition.
-
-Three additional attributes are added to each polygon representing a cell in the output grid: 
-
-- ``id``: a unique value to identify the polygon.
-- ``centerX``: the X ordinate of the center of the polygon.
-- ``centerY``: the Y ordinate of the center of the polygon.
+Polygons can be rectangular or hexagonal and they can be contiguous or have space between them. Every point in the defined area will belong to no more than one of the resulting polygons. In this case, the resulting polygons will form a *space partition*.
 
 .. figure:: img/grid.png
 
@@ -25,10 +19,10 @@ Three additional attributes are added to each polygon representing a cell in the
 Inputs and outputs
 ------------------
 
-This process returns :ref:`processing.processes.formats.fcout`.
+This process has no geographic input and returns :ref:`processing.processes.formats.fcout`.
 
 Inputs
-^^^^^^
+~~~~~~
 
 .. list-table::
    :header-rows: 1
@@ -54,13 +48,13 @@ Inputs
      - Double
      - No    
    * - ``mode``
-     - This parameter determines the shape of the resulting polygons. Available options are rectangular and hexagonal.
+     - This parameter determines the shape of the resulting polygons. Available options are ``rectangular`` and ``hexagonal``.
      - GridMode
      - No    
 
 
 Outputs
-^^^^^^^
+~~~~~~~
 
 .. list-table::
    :header-rows: 1
@@ -69,24 +63,27 @@ Outputs
      - Description
      - Type
    * - ``result``
-     - The resulting grid feature collection
+     - Resulting grid feature collection
      - :ref:`SimpleFeatureCollection <processing.processes.formats.fcout>`
 
-
 Usage notes
---------------
+-----------
 
-* The ``width``, ``height`` and ``vertexSpacing`` inputs should be expressed in the units of the CRS defined by the ``bounds`` parameter.
+* The ``width``, ``height`` and ``vertexSpacing`` inputs should be expressed in the units of the :term:`CRS` defined by the ``bounds`` parameter.
 * Both ``centerX`` and ``centerY`` attributes in the output feature collection are also expressed in the units of the feature collection's CRS.
-* The ``width`` value is used as the radius of the hexagon, so in practice the resulting hexagons have a width twice the entered ``width`` value, as can be seen in the description image above.
+* The ``width`` value is used as the radius of the hexagon, so in practice the resulting hexagons have a width twice the entered ``width`` value, as can be seen in the image above.
+* Three attributes are added to each polygon representing a cell in the output grid:
+
+  * ``id``: a unique value to identify the polygon
+  * ``centerX``: the X ordinate of the center of the polygon
+  * ``centerY``: the Y ordinate of the center of the polygon
 
 Examples
----------
+--------
 
 The following example creates a grid of 1km x 1km square cells roughly covering the southern half of Manhattan.
 
-
-Input parameters 
+Input parameters:
 
 * ``bounds``
 
@@ -99,7 +96,7 @@ Input parameters
 * ``width``: 1000
 * ``mode``: ``Rectangular``
 
-:download:`Download complete XMl request <xml/gridexample.xml>`.
+:download:`Download complete XML request <xml/gridexample.xml>`.
 
 .. figure:: img/gridexampleUI.png
 
@@ -111,11 +108,7 @@ Input parameters
 
 
 Related processes
----------------------------------
+-----------------
 
-* See the documentation for the ``gs:VectorZonalStatistics`` to see a practical use of the ``gs:Grid`` algorithm to create a hex-binning rendering of a point feature collection.
-
-
-
-
+* The :ref:`gs:VectorZonalStatistics <processing.processes.vector.vectorzonalstatistics>` process page shows a practical use of the ``gs:Grid`` algorithm to create a "hexagonal-binning" of a point feature collection.
 
