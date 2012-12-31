@@ -36,11 +36,11 @@ Inputs
      - :ref:`SimpleFeatureCollection <processing.processes.formats.fcin>`
      - Required
    * - ``distance``
-	     - Simplification distance tolerance—Must be non-negative
+     - Simplification distance tolerance
      - double
      - Required
    * - ``preserveTopology``
-     - If True, ensures that simplified features are topologically valid
+     - If ``true``, ensures that simplified features are topologically valid
      - Boolean
      - Optional
 
@@ -60,7 +60,7 @@ Outputs
 Usage notes
 -----------
 
-* The distance value is assumed to be in the same units as the feature collection.
+* The ``distance`` value is assumed to be in the same units as the feature collection and must be non-negative.
 * This process can be applied to feature collections with linear and areal geometries. If the input feature collection contains points, the output feature collection will be identical to the input.
 * If the ``preserveTopology`` parameter is set to True, the process ensures that each simplified geometry has the same dimension and number of components as the input geometry. In particular, if the input is an areal geometry, the result will have the same number of shells and holes (rings) as the input and in the same order. The resulting rings will touch at *no more* than the number of touching points in the input (they may touch at fewer points).
 * When simplifying a layer of contiguous polygons, there is no guarantee the polygons will remain contiguous after being simplified. Empty spaces between polygon edges may appear, or the polygons may overlap in places. The following illustration demonstrates this potential side-effect, showing the ``usa:states`` layer before and after being simplified.
