@@ -21,3 +21,4 @@ This section describes the vector processes available with the OpenGeo Suite.
    aggregate
    bounds
    collectgeoms
+   feature
