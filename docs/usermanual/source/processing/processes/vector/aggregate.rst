@@ -1,6 +1,6 @@
 .. _processing.processes.vector.aggregate:
 
-.. warning:: Document Status: Requires technical review
+.. warning:: Document Status: **Requires technical review**
 
 Aggregate
 =========
@@ -8,19 +8,26 @@ Aggregate
 Description
 -----------
 
-The ``gs:Aggregate`` process calculates one or more statistics for a given attribute for a feature collection. The available statistical values to calculate are mean, minimum value, maximum value, standard deviation, count and sum. 
+The ``gs:Aggregate`` process calculates one or more statistics for a given attribute for a feature collection. The available statistical values to calculate are:
 
-.. figure :: img/aggregate.png
+* **Mean**—Calculates the mean for a given value over all features
+* **Min**—Calculates the minimum value over all features
+* **Max**—Calculates the maximum value over all features
+* **StdDev**—Calculates the standard deviation of a given value over all features
+* **Count**—Calculates the number of features
+* **Sum**—Calculates the sum of a given attribute value over all features
+
+.. figure:: img/aggregate.png
   
    *gs:Aggregate*
 
 Inputs and outputs
 ------------------
 
-This process accepts :ref:`processing.processes.formats.fcin`
+This process accepts :ref:`processing.processes.formats.fcin` and returns a numerical value.
 
 Inputs
-^^^^^^
+~~~~~~
 
 .. list-table::
    :header-rows: 1
@@ -34,20 +41,22 @@ Inputs
      - :ref:`SimpleFeatureCollection <processing.processes.formats.fcin>`
      - Yes
    * - ``aggregationAttribute``
-     - The selected attribute to use for calculating statistics
+     - Attribute to use for calculating statistics
      - String
      - Yes
    * - ``function``
-     - the functions to calculate for the selected attribute.
-     - Set<AggregationFunction>
+     - Functions to calculate for the selected attribute.  Can be one of ``Mean``, ``Min``, ``Max``, ``StdDev``, ``Count``, ``Sum``
+     - String
      - Yes     
    * - ``singlePass``
-     - If this parameter is True, calculations are done in a single pass
+     - If set to ``true``, calculations are done in a single pass. Default is ``false``.
      - Boolean
      - No
 
+.. todo:: Single pass as opposed to what?
+
 Outputs
-^^^^^^^
+~~~~~~~
 
 .. list-table::
    :header-rows: 1
@@ -56,59 +65,78 @@ Outputs
      - Description
      - Type
    * - ``result``
-     - The results of the statistics computed for the selected attribute.
-     - Results
+     - Result of the calculation
+     - Value
 
 Usage notes
-------------
+-----------
 
-- The ``aggregationAttribute`` input parameters is case-sensitive.
+* The ``aggregationAttribute`` input parameter is case-sensitive.
+* The ``aggregationAttribute`` input parameter is ignored when using ``Count``.
 
 Examples
----------
+--------
 
-# Calculating the total number of students in the schools represented by the ``medford:schools`` feature collection.
 
-  Input parameters:
+Total number of students
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+This example calucates the total number of students in the schools represented by the ``medford:schools`` layer.
+
+Input parameters:
     
-  - ``features``: ``medford:schools``
-  - ``aggregationAttribute``: ``students``
-  - ``function``: ``Sum``
-  - ``singlePass``: ``False``
+* ``features``: ``medford:schools``
+* ``aggregationAttribute``: ``students``
+* ``function``: ``Sum``
+* ``singlePass``: ``False``
 
-  :download:`Download complete XML request <xml/aggregateexample.xml>`.
+:download:`Download complete XML request <xml/aggregateexample.xml>`
 
-  .. figure:: img/aggregateexampleUI.png
+.. figure:: img/aggregateexampleUI.png
 
-     *gs:Aggregate example parameters*
+   *gs:Aggregate example parameters*
 
-  This yields a total number of students equal to 22342.
+The result shows the total number of students at **22342**.
+
+.. code-block:: xml
+
+   <AggregationResults>
+     <Sum>22342.0</Sum>
+   </AggregationResults>
 
 
-# Calculating the total number of students in the schools represented by the ``medford:schools`` feature collection, within the city limits represented by the ``medford:citylimits`` feature collection. The ``gs:InclusionFeatureLayer`` process is used to get a filtered collection of schools within the city limits, and then that resulting collection is used as input for the ``gs:Aggregate`` process.
+Total number of students in a given area
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  The parameter values used for the ``gs:InclusionFeatureLayer`` are the following ones:
+This example calculates the total number of students in the schools represented by the ``medford:schools`` layer, but within the city limits as represented by the ``medford:citylimits`` layer. This is accomplished with a process chain: the :ref:`InclusionFeatureLayer <processing.processes.vector.inclusionfeaturelayer>` process is used to get a filtered collection of schools within the city limits, and then that resulting collection is used as input for the ``gs:Aggregate`` process.
 
-  Input parameters for ``gs:InclusionFeatureLayer``
+Inputer parameter for ``gs:InclusionFeatureLayer``:
 
-  * ``first feature collection``: *medford:schools*
-  * ``second feature collection``: *medford:citylimits*
+* ``first feature collection``: ``medford:schools``
+* ``second feature collection``: ``medford:citylimits``
 
-  Input parameters for ``gs:Aggregate``
+Input parameters for ``gs:Aggregate``:
     
-  * ``features``: output from ``gs:InclusionFeatureLayer``
-  * ``aggregationAttribute``: ``students``
-  * ``function``: ``Sum``
-  * ``singlePass``: ``False``
+* ``features``: output from ``gs:InclusionFeatureLayer``
+* ``aggregationAttribute``: ``students``
+* ``function``: ``Sum``
+* ``singlePass``: ``False``
 
-  :download:`Download complete XML request <xml/aggregateexample2.xml>`.
+:download:`Download complete XML request <xml/aggregateexample2.xml>`
 
-  .. figure:: img/aggregateexampleUI2.png
+.. figure:: img/aggregateexampleUI2.png
 
-    *gs:Aggregate example parameters (Part 1)*
+   *gs:Aggregate example parameters (Part 1)*
 
-  .. figure:: img/aggregateexampleUI3.png
+.. figure:: img/aggregateexampleUI3.png
 
-    *gs:Aggregate example parameters (Part 2)*    
+   *gs:Aggregate example parameters (Part 2)*
 
-  This yields a total number of students equal to 13432.    
+The result shows the total number of students at **13432**.    
+
+.. code-block:: xml
+
+   <AggregationResults>
+     <Sum>13432.0</Sum>
+   </AggregationResults>
+
