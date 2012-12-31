@@ -1,27 +1,26 @@
 .. _processing.processes.vector.collectgeometries:
 
-.. warning:: Document Status: Requires technical review
+.. warning:: Document Status: **Requires copyedit review (MP)**
 
 CollectGeometries
-==================
+=================
 
 Description
 -----------
 
-The ``gs:CollectGeometries`` process turns all the features in a feature collection into a single ``GeometryCollection`` object. This allows using geometries from feature collections in processes that require an input of type ``Geometry``. The process gathers the default geometries from the feature collection and constructs a ``GeometryCollection`` based on them.
+The ``gs:CollectGeometries`` process takes all features in a feature collection and returns a single ``GeometryCollection`` object. This allows using geometries from feature collections in processes that require an input of type ``Geometry``.
 
 .. figure:: img/collectgeoms.png
    
    *gs:CollectGeometries*
 
-
 Inputs and outputs
 ------------------
 
-This process accepts :ref:`processing.processes.formats.fcin` and returns :ref:`processing.processes.formats.geomout` 
+This process accepts :ref:`processing.processes.formats.fcin` and returns :ref:`processing.processes.formats.geomout`.
 
 Inputs
-^^^^^^
+~~~~~~
 
 .. list-table::
    :header-rows: 1
@@ -36,7 +35,7 @@ Inputs
      - Yes
 
 Outputs
-^^^^^^^
+~~~~~~~
 
 .. list-table::
    :header-rows: 1
@@ -45,23 +44,17 @@ Outputs
      - Description
      - Type
    * - ``result``
-     - The geometry containing default geometries from features in the input feature collection
-     - :ref:``GeometryCollectionCollection <processing.processes.formats.geomout>`
-
+     - Geometry containing features from the input feature collection
+     - :ref:`GeometryCollectionCollection <processing.processes.formats.geomout>`
 
 Usage notes
---------------
+-----------
 
-* The :term:`CRS` of the resulting geometry is the same one of the input feature collection.
+* The :term:`CRS` of the resulting geometry is the same as the input feature collection.
 
 Related processes
----------------------------------
+-----------------
 
-* This process is of interest for all those processes taking inputs of type ``Geometry``, as it allows to obtain valid input objects from feature collections. To see an example of such usage, see the documentation for the :ref:`gs:Clip <processing.processes.vector.clip>` process.
-* To perform the opposite conversion and get a feature collection from a geometry, use the :ref:`gs:Feature <processing.processes.vector.feature>` process.
-
-
-
-
-
+* This process is useful for all those processes taking inputs of type :ref:`Geometry <processing.processes.geometry>`, as it can "convert" feature collections to geometries. To see an example of such usage, see the Examples section for the :ref:`gs:Clip <processing.processes.vector.clip>` process.
+* To perform the opposite conversion and generate a feature collection from a geometry, use the :ref:`gs:Feature <processing.processes.vector.feature>` process.
 
