@@ -7,7 +7,7 @@ Process reference
 
 This section will highlight the WPS processes available with the OpenGeo Suite, as well as describe how those processes operate. 
 
-Processes caare divided into three types depending on their expected input formats—**vector**, **raster**, and **geometry**. 
+Processes are divided into three types depending on their expected input formats—**vector**, **raster**, and **geometry**. 
 
 .. toctree::
    :maxdepth: 2

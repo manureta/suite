@@ -20,7 +20,7 @@ Inputs and outputs
 This process accepts :ref:`processing.processes.formats.fcin` and returns bounding box values.
 
 Inputs
-^^^^^^
+~~~~~~
 
 .. list-table::
    :header-rows: 1
@@ -35,7 +35,7 @@ Inputs
      - Yes
 
 Outputs
-^^^^^^^
+~~~~~~~
 
 .. list-table::
    :header-rows: 1

@@ -1,20 +1,23 @@
 .. _processing.processes.vector.reproject:
 
-.. warning:: Document Status: Requires technical review
+.. warning:: Document Status: **Requires copyedit review (MP)**
 
 Reproject
-==========
+=========
 
 Description
 -----------
 
-The ``gs:Reproject`` process reprojects the features in a feature collection into a given :term:`CRS`.
+The ``gs:Reproject`` process reprojects the features in a feature collection to another :term:`CRS` from its original.
 
-The process takes the native feature collection :term:`CRS` as the origin one for the reprojection. However, a different origin CRS can be forced in case the native one is not correct.
+.. todo:: missing image:  img/reproject.png
 
-.. figure:: img/reproject.png
+.. note::
 
-   *gs:Reproject*
+   For more information on available CRSs, see the following sites:
+
+   * `EPSG Geodetic Parameter Dataset <http://www.epsg-registry.org>`_
+   * `Spatial Reference <http://spatialreference.org>`_
 
 Inputs and outputs
 ------------------
@@ -22,7 +25,7 @@ Inputs and outputs
 This process accepts :ref:`processing.processes.formats.fcin` and returns :ref:`processing.processes.formats.fcout`.
 
 Inputs
-^^^^^^
+~~~~~~
 
 .. list-table::
    :header-rows: 1
@@ -36,16 +39,16 @@ Inputs
      - SimpleFeatureCollection
      - Yes
    * - ``forcedCRS``
-     - :term:`CRS` to used instead of the original one of the input feature collection
+     - CRS to used instead of the original one of the input feature collection
      - CoordinateReferenceSystem
      - No
    * - ``targetCRS``
-     - The :term:`CRS` to reproject input features into. The resulting feature collection will use this :term:`CRS`
+     - The CRS to reproject input features into. The resulting feature collection will use this CRS
      - CoordinateReferenceSystem
      - No     
 
 Outputs
-^^^^^^^
+~~~~~~~
 
 .. list-table::
    :header-rows: 1
@@ -54,55 +57,43 @@ Outputs
      - Description
      - Type
    * - ``result``
-     - The reprojected feature collection in the selected :term:`CRS`
+     - The reprojected feature collection in the selected CRS
      - SimpleFeatureCollection
 
-
 Usage notes
---------------
+-----------
 
-* If no value is provided for the ``forcedCRS`` input parameter, the native :term:`CRS` is used. Otherwise, the provided :term:`CRS` is used and the native one is ignored. This can be used to correct a wrongly assigned :term:`CRS` for a give feature collection.
+* A different origin CRS can be forced in case the native one is not correct.
+* If no value is provided for the ``forcedCRS`` input parameter, the native CRS is used. The native CRS is ignored when a CRS is provided. This can be used to correct a wrongly assigned CRS for a given feature collection.
 * The feature collection can contain geometries of any type.
-* Only the default geometries are reprojected. Other additional attributes containing geometries will not be reprojected. Attributes are copied directly from the input feature collection into the output feature collection, including those with geometries. 
-* Attributes containing values that depend on the :term:`CRS` (such as those depending on its units, like areas or lenghts), are not modified neither, so they should be updated independently to make sense with the new reprojected geometries.
+* Attributes containing values that depend on the CRS (such as those depending on its units, like areas or lengths) are not modified, so they will need to be updated independently.
+
+.. todo:: This note needs clarification: "Only the default geometries are reprojected. Other additional attributes containing geometries will not be reprojected. Attributes are copied directly from the input feature collection into the output feature collection, including those with geometries.""
 
 Examples
----------
+--------
 
 The following example shows the result of reprojection the ``usa:states`` feature collection from it original CRS (EPSG:4326) into the Albers Equal Area (EPSG:45556) one.
 
 Input parameters:
 
-* ``features``: *usa:states*
+* ``features``: ``usa:states``
 * ``forcedCRS``:
-* ``targetCRS``: EPSG:45556
+* ``targetCRS``: ``EPSG:45556``
 
 .. figure:: img/reprojectexampleUI.png
 
    *gs:Reproject example parameters*
 
-:download:`Download complete XMl request <xml/reprojectexample.xml>`.
+:download:`Download complete XML request <xml/reprojectexample.xml>`.
 
-.. image:: img/reprojectexample.png
+.. figure:: img/reprojectexample.png
 
    *gs:Reproject example output*
 
 Related processes
---------------------
+-----------------
 
-- This process is of particular interest for those ones taking two or more feature collections as inputs, in which all of them have to use the same CRS. Most overlay processes such as ``gs:IntersectionFeatureCollection`` or ``gs:InclusionFeatureCollection`` are of this kind. By using the ``gs:Reproject`` process you can reproject all input feature collections into a common :term:`CRS`, so they can be used together as input.
-- Use this process to change the CRS of a feature collection from a geographic CRS into a projected CRS, for those processes in which is recommended or needed to use such ones, such as the ``gs:Buffer`` process.
-- To reproject a single geometry, use the ``gs:ReprojectGeometry`` process instead.
-
-Additional information
------------------------
-
-To know more about Coordinate transformations, check the following link:
-
-- http://kartoweb.itc.nl/geometrics/coordinate%20transformations/coordtrans.html
-
-For more information on available CRSs, go to the following sites:
-
-- http://www.epsg-registry.org/
-- http://spatialreference.org/
-
+* This process is useful when working with multiple feature collections that all need to use the same CRS. Most overlay processes such as :ref:`gs:IntersectionFeatureCollection <processing.processes.vector.intersectionfc>` or :ref:`gs:InclusionFeatureCollection <processing.processes.vector.inclusionfc>` are of this kind. By using the ``gs:Reproject`` all feature collections can be reprojected into a common CRS so they can be used together.
+* This process can be used to change the CRS of a feature collection from a geographic CRS into a projected CRS. This is useful for those processes in which a projected CRS is recommended, such as buffer processes (:ref:`JTS:Buffer <processing.processes.geometry.buffer>` and :ref:`gs:BufferFeatureCollection <processing.processes.vector.bufferfc>` process, where buffers drawn in a geographic CRS can become distorted.
+* To reproject a single geometry, use the :ref:`gs:ReprojectGeometry <processing.processes.geometry.reprojectgeom>` process instead.

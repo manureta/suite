@@ -73,5 +73,5 @@ Relationship to other processes
 -------------------------------
 
 * To count the number of features in a given area defined by a polygon, you can clip the input feature collection using the :ref:`gs:Clip <processing.processes.vector.clip>` process and use the resulting feature collection.
-* The :ref:`gs:VectorZonalStatistics <processing.processes.vector.vectorzonalstatistics>` process calculates statistical values of features with geometries within given polygon "zones", among them the number of features.
+* The :ref:`gs:VectorZonalStatistics <processing.processes.vector.vectorzonalstats>` process calculates statistical values of features with geometries within given polygon "zones", among them the number of features.
 

@@ -27,3 +27,4 @@ This section describes the vector processes available with the OpenGeo Suite.
    inclusionfc
    nearest
    query
+   reproject

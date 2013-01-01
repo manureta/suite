@@ -110,5 +110,5 @@ Input parameters:
 Related processes
 -----------------
 
-* The :ref:`gs:VectorZonalStatistics <processing.processes.vector.vectorzonalstatistics>` process page shows a practical use of the ``gs:Grid`` algorithm to create a "hexagonal-binning" of a point feature collection.
+* The :ref:`gs:VectorZonalStatistics <processing.processes.vector.vectorzonalstats>` process page shows a practical use of the ``gs:Grid`` algorithm to create a "hexagonal-binning" of a point feature collection.
 
