@@ -106,19 +106,19 @@ Input parameters:
 
 .. figure:: img/vectortorasterexampleUI.png  
 
-   *gs:VectorToRaster example parameters*
+   *gt:VectorToRaster example parameters*
 
 The following image shows a close up of the resulting grid coverage, along with the original feature collection, to illustrate the rasterization process and the differences between raster and vector version of a same polygon area.
 
 .. figure:: img/vectortorasterexample.png
 
-   *gs:VectorToRaster example output*
+   *gt:VectorToRaster example output*
 
 Related processes
 -----------------
 
 * This process is of interest when the input is a feature collection, but the intended process takes a raster as an input.
-* The :ref:`gs:Bounds <processing.processes.vector.bounds>` process returns an envelope from a feature collection, so it can be used to define the bounds of the output grid coverage of the ``gs:VectorToRaster`` process. Use it to chain processes or just to know the extent of the input feature collection, in case you want to manually adjust it.
+* The :ref:`gs:Bounds <processing.processes.vector.bounds>` process returns an envelope from a feature collection, so it can be used to define the bounds of the output grid coverage of the ``gt:VectorToRaster`` process. Use it to chain processes or just to know the extent of the input feature collection, in case you want to manually adjust it.
 * In the case of polygons, this process is the inverse of the :ref:`gs:PolygonExtraction <processing.processes.raster.polygonextraction>` process, which converts a grid coverage into a polygon feature collection with polygons representing areas in the input grid coverage that have the same value.
 * When rasterizing a feature collection comprised of points, most cells in the resulting layer are likely to have no data, unless the points are densely packed or the cell size (determined by the number of cells in the ``rasterWidth`` and ``rasterHeight`` parameters) is large. To create a grid coverage with values in all cells by using interpolation methods, use an interpolation process such as :ref:`gs:BarnesSurface <processing.processes.raster.barnessurface>`.
 

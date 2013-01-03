@@ -1,27 +1,26 @@
 .. _processing.processes.unique:
 
-.. warning:: Document Status: Requires technical review
+.. warning:: Document Status: **Requires copyedit review and addition info (MP)**
 
 Unique
-==================
+======
 
 Description
 -----------
 
-The ``gs:Unique`` process returns the unique values for a given attribute in a feature collection. The result is a new feature collection with a single attribute named with the same name as the attribute select for extracting unique values. The feature collection contains as many feature as unique values for the selected field can be found in the original input feature collection.
+The ``gs:Unique`` process takes a feature collection and returns the unique values for a given attribute in that feature collection. The new feature collection will contain as many features as there are unique values for the selected attribute, with eahch feature containing a single attribute with the same name as the attribute selected for extracting the unique values.
 
 .. figure:: img/unique.png
 
    *gs:Unique*
 
-
 Inputs and outputs
 ------------------
 
-This process accepts :ref:`processing.processes.formats.fcin` and returns :ref:`processing.processes.formats.fcout` 
+This process accepts :ref:`processing.processes.formats.fcin` and returns :ref:`processing.processes.formats.fcout`.
 
 Inputs
-^^^^^^
+~~~~~~
 
 .. list-table::
    :header-rows: 1
@@ -35,12 +34,12 @@ Inputs
      - :ref:`SimpleFeatureCollection <processing.processes.formats.fcin>`
      - Yes     
    * - ``attribute``
-     - The attribute to consider for extracting unique values
+     - Attribute to consider for extracting unique values
      - String
      - Yes
 
 Outputs
-^^^^^^^
+~~~~~~~
 
 .. list-table::
    :header-rows: 1
@@ -49,31 +48,29 @@ Outputs
      - Description
      - Type
    * - ``result``
-     - The resulting feature collection of unique values
+     - Resulting feature collection of unique values
      - :ref:`SimpleFeatureCollection <processing.processes.formats.fcout>`
 
 
-
 Usage notes
---------------  
+-----------
 
-* If the attribute selected is of type String, comparison between values is case-sensitive. Two values containing the same text, but with different case, will be counted as being different ones.
-
-* The name of the attribute is case-sensitive.
+* The name of the ``attribute`` is case-sensitive.
+* If the ``attribute`` selected is of type ``String``, comparison between values is case-sensitive.
 
 
 Examples
-----------
+--------
 
-The following example shows how to get a feature collection with the names of the countries in which volcanoes can be found. First, the *world:volcanoes* and *world:borders* are intersected to get a feature collection of volcanoes, adding the name of the country they belong to. After that, the ``gs:Unique``  process is run on that feature collection to get the list of different country names.
+The following example shows how to generate a feature collection consisting of only those countries where volcanoes can be found. To accomplish this, the ``world:volcanoes`` and ``world:borders`` layers are intersected using :ref:`gs:IntersectionFeatureCollection <processing.processes.vector.intersectionfc>` to get a feature collection with volcano information. After that, the ``gs:Unique`` process is run on that feature collection to get the list of different country names.
 
-Input parameter
+Input parameters for ``gs:IntersectionFeatureCollection``:
 
 * ``first feature collection``: ``world:borders``
 * ``second feature collection``: ``world:volcanoes``
 * ``first attributes to retain``: ``NAME``
 * ``second attributes to retain``: 
-* ``intersectionMode``: *SECOND*
+* ``intersectionMode``: ``SECOND``
 * ``enableArea``: false
 * ``enablePercent``: false
 
@@ -81,13 +78,18 @@ Input parameter
 
 .. figure:: img/uniqueexampleUI.png
 
-Input parameter
-  - ``features``: Output from ``gs:IntersectionFeatureCollection``
-  - ``attribute``: *borders_NAME*
+   *gs:Intersection example parameters*
 
-.. image:: img/uniqueexampleUI2.png
+Input parameters for ``gs:Unique``:
 
+* ``features``: Output from ``gs:IntersectionFeatureCollection``
+* ``attribute``: ``borders_NAME``
 
+.. figure:: img/uniqueexampleUI2.png
+
+   *gs:Unique example parameters*
+
+.. todo:: And the result?
 
 
 
