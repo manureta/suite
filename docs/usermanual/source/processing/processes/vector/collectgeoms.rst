@@ -1,4 +1,4 @@
-.. _processing.processes.vector.collectgeometries:
+.. _processing.processes.vector.collectgeoms:
 
 .. warning:: Document Status: **Requires copyedit review (MP)**
 

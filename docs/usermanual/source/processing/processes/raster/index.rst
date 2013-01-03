@@ -1,16 +1,15 @@
 .. _processing.proccesses.raster: 
 
-Process reference
-=================
+Raster processes
+================
 
-This section will highlight some common and useful WPS processes stored in the OpenGeo Suite. It is not a comprehensive listing of all processes; rather, it is designed to get a feel for how some particular processes operate.
+.. warning:: Document status: **Draft**
+
+This section describes the raster processes available with the OpenGeo Suite.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    cropcoverage
    vectortoraster
    polygonextraction
-
-
-.. todo:: For more information, go where?
