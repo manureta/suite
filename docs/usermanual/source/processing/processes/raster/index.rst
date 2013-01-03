@@ -11,5 +11,4 @@ This section describes the raster processes available with the OpenGeo Suite.
    :maxdepth: 2
 
    cropcoverage
-   vectortoraster
    polygonextraction

@@ -28,3 +28,4 @@ This section describes the vector processes available with the OpenGeo Suite.
    nearest
    query
    reproject
+   vectortoraster

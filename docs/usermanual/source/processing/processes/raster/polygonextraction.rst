@@ -107,6 +107,6 @@ Examples
 Related processes
 -----------------
 
-* This process is the inverse of the :ref:`gs:VectorToRaster <processing.processes.raster.vectortoraster>` process, which creates a grid coverage from a feature collection.
+* This process is the inverse of the :ref:`gs:VectorToRaster <processing.processes.vector.vectortoraster>` process, which creates a grid coverage from a feature collection.
 * Other processes are available to convert from a grid coverage into a feature collection. To create a points feature collection, use the :ref:`gs:RasterAsPointCollection <processing.processes.raster.rasteraspoints>` process. To create a lines feature collection with contour lines from a grid coverage, use the :ref:`gs:Contour <processing.processes.raster.contour>` process.
 
