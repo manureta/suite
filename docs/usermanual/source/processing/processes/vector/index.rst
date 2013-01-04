@@ -3,31 +3,29 @@
 Vector processes
 ================
 
-.. warning:: Document status: **Draft**
-
 This section describes the vector processes available with the OpenGeo Suite.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
+   aggregate
+   bounds
    bufferfc
    centroid
    clip
-   import
-   intersectionfc
-   simplify
-   transform
-   unionfc
-   aggregate
-   bounds
    collectgeoms
    count
    feature
    grid
+   import
    inclusionfc
+   intersectionfc
    nearest
    query
    reproject
+   simplify
+   transform
+   unionfc
    unique
    vectortoraster
    vectorzonalstats
