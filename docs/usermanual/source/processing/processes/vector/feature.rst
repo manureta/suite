@@ -78,5 +78,5 @@ Input parameters:
 Relationship to other processes
 -------------------------------
 
-* The :ref:`gt:CollectGeometries <processing.processes.vector.collectgeometries>` process is the inverse of this process—it converts a feature collection into a single geometry.
-* If additional scalar-valued attributes are needed, they can be added by chaining this process into the :ref:`gt:Transform <processing.processes.vector.transform>`  process.
+* The :ref:`gt:CollectGeometries <processing.processes.vector.collectgeoms>` process is the inverse of this process—it converts a feature collection into a single geometry.
+* If additional scalar-valued attributes are needed, they can be added by chaining this process into the :ref:`gs:Transform <processing.processes.vector.transform>`  process.

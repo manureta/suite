@@ -108,7 +108,7 @@ The result shows the total number of students at **22342**.
 Total number of students in a given area
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This example calculates the total number of students in the schools represented by the ``medford:schools`` layer, but within the city limits as represented by the ``medford:citylimits`` layer. This is accomplished with a process chain: the :ref:`InclusionFeatureLayer <processing.processes.vector.inclusionfeaturelayer>` process is used to get a filtered collection of schools within the city limits, and then that resulting collection is used as input for the ``gs:Aggregate`` process.
+This example calculates the total number of students in the schools represented by the ``medford:schools`` layer, but within the city limits as represented by the ``medford:citylimits`` layer. This is accomplished with a process chain: the :ref:`gs:InclusionFeatureCollection <processing.processes.vector.inclusionfc>` process is used to get a filtered collection of schools within the city limits, and then that resulting collection is used as input for the ``gs:Aggregate`` process.
 
 Inputer parameter for ``gs:InclusionFeatureLayer``:
 
