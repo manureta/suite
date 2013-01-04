@@ -55,7 +55,7 @@ Inputs
      - String
      - Optional (any number)
    * - ``intersectionMode``
-     - Specifies geometry computed for intersecting features. Options ``INTERSECTION`` (default)—Computes the spatial intersection of the inputs, ``FIRST``—Copies geometries directly from the first input feature collection, ``SECOND``—Copies geometries directly from the second feature collection
+     - Specifies geometry computed for intersecting features. Options are ``INTERSECTION`` (default), ``FIRST``, and ``SECOND``.
      - IntersectionMode
      - Optional
    * - ``percentagesEnabled``
@@ -86,6 +86,7 @@ Usage notes
 * The first input feature collection must not consist of point geometries.
 * Both input feature collections are assumed to be in the same :term:`CRS`. The output feature collection will have the same CRS as the input.
 * We recommend using the smallest feature collection in the ``second feature collection`` input, as this will reduce the time required to run the process.
+* Regardnig the ``intersection Mode`` attribute, ``INTERECTION`` computes the spatial intersection of the inputs, ``FIRST`` copies geometries directly from the first input feature collection, and ``SECOND`` copies geometries directly from the second feature collection.
 * An ``INTERSECTION_ID`` field is automatically added that will contain a unique integer value for each output feature.
 * If either of the parameters ``areasEnabled`` or ``percentageEnabled`` are set to True, both of the feature collections must contain polygon features.
 * Areas of resulting intersection polygons, stored in the ``areaA`` and ``areaB`` attributes, are expressed in the areal units corresponding to the input feature collections. For example, if coordinates are expressed in meters, areas will be expressed in square meters.

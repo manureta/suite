@@ -34,7 +34,7 @@ Inputs
      - :ref:`SimpleFeatureCollection <processing.processes.formats.fcin>`
      - Required
    * - ``transform``
-     - Transform specification—List of specifiers (``name=expression``) delimited by newlines or semicolons
+     - Transform specification: a list of specifiers (``name=expression``) delimited by newlines or semicolons
      - String
      - Required
 
