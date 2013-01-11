@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wps:Execute version="1.0.0" service="WPS" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.opengis.net/wps/1.0.0" xmlns:wfs="http://www.opengis.net/wfs" xmlns:wps="http://www.opengis.net/wps/1.0.0" xmlns:ows="http://www.opengis.net/ows/1.1" xmlns:gml="http://www.opengis.net/gml" xmlns:ogc="http://www.opengis.net/ogc" xmlns:wcs="http://www.opengis.net/wcs/1.1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xsi:schemaLocation="http://www.opengis.net/wps/1.0.0 http://schemas.opengis.net/wps/1.0.0/wpsAll.xsd">
+  <ows:Identifier>gs:BarnesSurface</ows:Identifier>
+  <wps:DataInputs>
+    <wps:Input>
+      <ows:Identifier>data</ows:Identifier>
+      <wps:Reference mimeType="text/xml; subtype=wfs-collection/1.0" xlink:href="http://geoserver/wfs" method="POST">
+        <wps:Body>
+          <wfs:GetFeature service="WFS" version="1.0.0" outputFormat="GML2" xmlns:world="http://world.opengeo.org">
+            <wfs:Query typeName="world:globedata_temp"/>
+          </wfs:GetFeature>
+        </wps:Body>
+      </wps:Reference>
+    </wps:Input>
+    <wps:Input>
+      <ows:Identifier>valueAttr</ows:Identifier>
+      <wps:Data>
+        <wps:LiteralData>MxTemp</wps:LiteralData>
+      </wps:Data>
+    </wps:Input>
+    <wps:Input>
+      <ows:Identifier>scale</ows:Identifier>
+      <wps:Data>
+        <wps:LiteralData>15</wps:LiteralData>
+      </wps:Data>
+    </wps:Input>
+    <wps:Input>
+      <ows:Identifier>passes</ows:Identifier>
+      <wps:Data>
+        <wps:LiteralData>3</wps:LiteralData>
+      </wps:Data>
+    </wps:Input>
+    <wps:Input>
+      <ows:Identifier>maxObservationDistance</ows:Identifier>
+      <wps:Data>
+        <wps:LiteralData>15</wps:LiteralData>
+      </wps:Data>
+    </wps:Input>
+    <wps:Input>
+      <ows:Identifier>pixelsPerCell</ows:Identifier>
+      <wps:Data>
+        <wps:LiteralData>8</wps:LiteralData>
+      </wps:Data>
+    </wps:Input>
+    <wps:Input>
+      <ows:Identifier>queryBuffer</ows:Identifier>
+      <wps:Data>
+        <wps:LiteralData>40</wps:LiteralData>
+      </wps:Data>
+    </wps:Input>
+    <wps:Input>
+      <ows:Identifier>outputBBOX</ows:Identifier>
+      <wps:Data>
+        <wps:BoundingBoxData crs="EPSG:4326" dimensions="2">
+          <ows:LowerCorner>-180.0 -90.0</ows:LowerCorner>
+          <ows:UpperCorner>180.0 90.0</ows:UpperCorner>
+        </wps:BoundingBoxData>
+      </wps:Data>
+    </wps:Input>
+    <wps:Input>
+      <ows:Identifier>outputWidth</ows:Identifier>
+      <wps:Data>
+        <wps:LiteralData>720</wps:LiteralData>
+      </wps:Data>
+    </wps:Input>
+    <wps:Input>
+      <ows:Identifier>outputHeight</ows:Identifier>
+      <wps:Data>
+        <wps:LiteralData>360</wps:LiteralData>
+      </wps:Data>
+    </wps:Input>
+  </wps:DataInputs>
+  <wps:ResponseForm>
+    <wps:RawDataOutput mimeType="image/tiff">
+      <ows:Identifier>result</ows:Identifier>
+    </wps:RawDataOutput>
+  </wps:ResponseForm>
+</wps:Execute>

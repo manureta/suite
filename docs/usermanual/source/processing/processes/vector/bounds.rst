@@ -80,3 +80,7 @@ The output is a ``ReferencedEnvelope`` object, representing the rectangle with t
      <ows:UpperCorner>-122.77716656020742 42.39838210872112</ows:UpperCorner>
    </ows:BoundingBox>
 
+Related processes
+-------------------
+
+This process is of interest for all those processes requiring an inut of type ``ReferenceEnvelope``. Chaining it with them can be used to automatically specify the envelope that covers the extent of a given feature collection.

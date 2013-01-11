@@ -14,7 +14,7 @@ The ``gs:`PolygonExtraction`` process takes an input raster and creates a polygo
 
    *gs:PolygonExtraction*
 
-This approach is useful if the layer contains areas of several contiguous cells with the same value. The process can also perform a reclassification to group cells within a set of ranges so they are considered as belonging to the same class, which is useful when working with a DEM (digital elevation model), a type of raster where neighbor pixels usually don't share the same values.
+This approach is useful if the layer contains areas of several contiguous cells with the same value. The process can also perform a reclassification to group cells within a set of ranges so they are considered as belonging to the same class, which is useful when working with grid coverages such as a DEM (digital elevation model), which contain a continuous (non-discrete) variable, where neighbor pixels usually don't share the same values.
 
 .. figure:: img/polygonextraction2.png
 
@@ -77,8 +77,8 @@ Outputs
      - Description
      - Type
    * - ``result``
-     - The output coverage, with the rasterized version of the input feature collection.
-     - :ref:`GridCoverage2D <processing.processes.formats.rasterout>`
+     - The output feature collection, with the vectorized polygons.
+     - :ref:`SimpleFeatureCollection<processing.processes.formats.fcout>`
 
 
 Usage notes
