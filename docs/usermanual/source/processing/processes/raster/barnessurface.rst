@@ -1,5 +1,6 @@
-.. _processing.processes.raster.barnes:
+.. _processing.processes.raster.barnessurface:
 
+.. warning:: Document Status: **Requires additional technical review and example (MP)**
 
 BarnesSurface
 =======================
@@ -75,15 +76,15 @@ Inputs
      - Distance to expand the query envelope by, in units of the source CRS (larger values provide a more stable surface)
      - Double
      - Optional                                        
-* - ``outputBBOX``
+   * - ``outputBBOX``
      - Bounding box for output  
      - ReferencedEnvelope
      - Required
-* - ``outputWidth``
+   * - ``outputWidth``
      - Width of the output raster in pixels
      - Integer
      - Required                                        
-* - ``outputHeight``
+   * - ``outputHeight``
      - Height of the output raster in pixels  
      - Integer
      - Required                                                  
@@ -149,13 +150,13 @@ Input parameters:
 
 :download:`Download complete XML request <xml/barnesexample.xml>`
 
-.. figure:: img/barnesexampleUI.png
+.. figure:: img/barnessurfaceexampleUI.png
 
    *gs:BarnesSurface example parameters*
 
-The resulting coverage looks like this:
+The resulting coverage looks like this, along with the input points corresponding to that area:
 
-.. figure:: img/barnesexample.png
+.. figure:: img/barnessurfaceexample.png
 
    *gs:BarnesSurface example output*
 
@@ -163,7 +164,7 @@ The resulting coverage looks like this:
 Related processes
 -----------------
 
-Other processes are available for converting a feature collection into a grid coverage (rasterizing), that do not use interpolation techniques. The :ref:`gs:VectorRoRaster<processing.processes.vector.vectortoraster>`` performs a raster to vector conversion without interpolation of any kind.
+Other processes are available for converting a feature collection into a grid coverage (rasterizing), that do not use interpolation techniques. The :ref:`gs:VectorRoRaster<processing.processes.vector.vectortoraster>`  performs a raster to vector conversion without interpolation of any kind.
 
 
 More information

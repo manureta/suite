@@ -8,7 +8,7 @@ PolygonExtraction
 Description
 -----------
 
-The ``gs:`PolygonExtraction`` process takes an input raster and creates a polygon feature collection. Polygons represent areas in the input coverage that contain equal values. Polygons are traced using the cell boundaries.
+The ``gs:PolygonExtraction`` process takes an input raster and creates a polygon feature collection. Polygons represent areas in the input coverage that contain equal values. Polygons are traced using the cell boundaries.
 
 .. figure:: img/polygonextraction.png
 
@@ -41,31 +41,31 @@ Inputs
    * - Name
      - Description
      - Type
-     - Required
+     - Usage
    * - ``data``
      - Grid coverage from which to extract polygons
      - :ref:`GridCoverage2D <processing.processes.formats.rasterin>`
-     - Yes
+     - Required
    * - ``band``
      - Band from which to take values. This index is zero-based. Default is zero (first band).
      - Integer
-     - No
+     - Optional
    * - ``insideEdges``
      - Indicates whether to vectorize boundaries comprised of no-data values between adjacent regions with valid values
      - Boolean
-     - No
+     - Optional
    * - ``roi``
      - Region of interest to analyze. If used, only cells within this region are considered.
      - :ref:`Geometry <processing.processes.formats.geomin>`
-     - No
+     - Optional
    * - ``nodata``
      - Values to classify as no-data
      - Integer
-     - Yes   
+     - Optional  
    * - ``ranges``
      - The ranges to use to reclassify the input coverage before extracting polygons
      - list
-     - No         
+     - Required         
 
 Outputs
 ~~~~~~~
@@ -102,7 +102,32 @@ Usage notes
 Examples
 ---------
 
-.. todo:: Need an example.
+Creating a polygon from an elevation range
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This example creates a polygon feature collection corresponding to all areas in the ``meford:elevation`` grid coverage with an elevation between 1000 and 1500 meters.
+
+Input parameters:
+
+* ``data``: ``medford:elevation``
+* ``band``: [Blank]
+* ``insideEdges``: [Blank]
+* ``roi``: [Blank]
+* ``noData``: [Blank]
+* ``ranges``: (1000;1500)
+
+
+:download:`Download complete XML request <xml/polygonextraction.xml>`
+
+.. figure:: img/polygonextractionUI.png
+
+   *gs:PolygonExtraction example parameters*
+
+.. figure:: img/polygonextractionexample.png
+
+   *gs:PolygonExtraction example result*
+
+
 
 Related processes
 -----------------

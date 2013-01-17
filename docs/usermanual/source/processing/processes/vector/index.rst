@@ -23,7 +23,9 @@ This section describes the vector processes available with the OpenGeo Suite.
    nearest
    query
    reproject
+   reprojectgeometry
    simplify
+   snap
    transform
    unionfc
    unique

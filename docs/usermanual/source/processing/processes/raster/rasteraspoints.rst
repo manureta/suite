@@ -36,8 +36,7 @@ Inputs
    * - ``data``
      - Grid coverage from which to extract points
      - :ref:`GridCoverage2D <processing.processes.formats.rasterin>`
-     - Required
-   * 
+     - Required   
 
 Outputs
 ~~~~~~~
@@ -50,7 +49,7 @@ Outputs
      - Type
    * - ``result``
      - The output point feature collection.
-     - :ref:`SimpleFeatureColelction <processing.processes.formats.fcout>`
+     - :ref:`SimpleFeatureCollection <processing.processes.formats.fcout>`
 
 
 Usage notes
@@ -67,17 +66,28 @@ Convert elevation grid to elevation points
 
 The following example converts the ``medford:elevation`` grid coverage into a points feature collection with elevation values. Each point has one associated attribute coresponding to the only value in the input grid, which corresponds to the elevation of the cell.
 
-Input parameters:
+To avoid creating a layer with too many points, the input layer is cropped using the :ref:`gs:CropCoverage <processing.processes.raster.cropcoverage>` process
 
-* ``data``: ``medford:elevation``
+Input parameters for ``gs:CropCoverage``:
 
-:download:`Download complete XML request <xml/rastertopoints.xml>`
+* ``coverage``: ``medford:elevation``
+* ``cropShape``: ``POLYGON((-123 42.5, 123 42.4, 122.9 42.4, 122.9 42.5, -123 42.5))``
 
-.. figure:: img/rastertopointsUI.png
+Input parameters for ``gs:RasterAsPoints``:
 
-   *gs:RasterAsPointCollection example parameters*
+* ``data``: Output from ``gs:CropCoverage``
 
-.. figure:: img/rastertopointsexample.png
+:download:`Download compound XML request <xml/rasteraspoints.xml>`
+
+.. figure:: img/rasteraspointsUI.png
+
+   *gs:RasterAsPointCollection example parameters (part 1)*
+
+.. figure:: img/rasteraspointsUI2.png
+
+   *gs:RasterAsPointCollection example parameters (Part 2)*   
+
+.. figure:: img/rasteraspointsexample.png
 
    *Partial rendering of resulting points feature collection and input grid coverage*
 

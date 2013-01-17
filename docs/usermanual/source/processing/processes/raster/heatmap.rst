@@ -10,13 +10,21 @@ Description
 
 The ``gs:Heatmap`` process takes a feature collection representing occurrences of a given spatial process and generates a raster layer representing the density of that process across a specified area.
 
-.. figure:: img/rasteraspoints.png
+Calculation is done by taking a given radius around each cell of the resulting grid coverage and adding up the values from features falling within that radius, as represented in the figure below 
+
+
+.. figure:: img/heatmap.png
 
    *gs:Heatmap*
 
-Calculation is done by taking a given radius around each cell of the resulting grid coverage and adding up the values from features falling within that radius. The influence of a feature is modulated by its distance to the cell. Particularly, a `gaussian function<http://en.wikipedia.org/wiki/Gaussian_function>`_ is used to calculate the influence of a given feature occurrence at a given distance. The resulting coverage is normalized to have values within the (0,1) range.
+
+The influence of a feature is modulated by its distance to the cell. Particularly, a `gaussian function<http://en.wikipedia.org/wiki/Gaussian_function>`_ is used to calculate the influence of a given feature occurrence at a given distance. The resulting coverage is normalized to have values within the (0,1) range.
 
 Features can be weighted to indicate that the influence of a feature in the resulting density grid should be lower or higher. For instance, if the resulting grid coverage will be a population density coverage, and it is to be created from points representing cities, features should be weighted using the corresponding attribute which represents the population of each city.
+
+.. figure:: img/heatmapweighted.png
+
+  *gs:Heatmap*
 
 Inputs and outputs
 ------------------
@@ -61,6 +69,7 @@ Inputs
      - Width of output raster in pixels
      - Integer
      - Required     
+
 Outputs
 ~~~~~~~
 
@@ -71,7 +80,7 @@ Outputs
      - Description
      - Type
    * - ``result``
-     - The output point feature collection.
+     - The output heatmap.
      - :ref:`GridCoverage2D <processing.processes.formats.rasterout>`
 
 

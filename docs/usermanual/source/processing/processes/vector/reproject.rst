@@ -10,7 +10,9 @@ Description
 
 The ``gs:Reproject`` process reprojects the features in a feature collection to another :term:`CRS` from its original.
 
-.. todo:: missing image:  img/reproject.png
+.. figure:: img/reproject.png
+
+   *gs:Reproject*
 
 .. note::
 
@@ -95,5 +97,5 @@ Related processes
 -----------------
 
 * This process is useful when working with multiple feature collections that all need to use the same CRS. Most overlay processes such as :ref:`gs:IntersectionFeatureCollection <processing.processes.vector.intersectionfc>` or :ref:`gs:InclusionFeatureCollection <processing.processes.vector.inclusionfc>` are of this kind. By using the ``gs:Reproject`` all feature collections can be reprojected into a common CRS so they can be used together.
-* This process can be used to change the CRS of a feature collection from a geographic CRS into a projected CRS. This is useful for those processes in which a projected CRS is recommended, such as buffer processes (:ref:`JTS:Buffer <processing.processes.geometry.buffer>` and :ref:`gs:BufferFeatureCollection <processing.processes.vector.bufferfc>` process, where buffers drawn in a geographic CRS can become distorted.
-* To reproject a single geometry, use the :ref:`gs:ReprojectGeometry <processing.processes.geometry.reprojectgeom>` process instead.
+* This process can be used to change the CRS of a feature collection from a geographic CRS into a projected CRS. This is useful for those processes in which a projected CRS is recommended, such as buffer processes (:ref:`JTS:Buffer <processing.processes.geometry.buffer>` and :ref:`gs:BufferFeatureCollection <processing.processes.vector.bufferfc>` process), where buffers drawn in a geographic CRS can become distorted.
+* To reproject a single geometry, use the :ref:`gs:ReprojectGeometry <processing.processes.geometry.reprojectgeometry>` process instead.

@@ -24,18 +24,6 @@ Inputs and outputs
 Inputs
 ~~~~~~
 
-data  Input raster  GridCoverage2D  1 1
-band  Name of band to use for values to be contoured  Integer 0 1
-levels  Values of levels at which to generate contours  double  0 ∞
-interval  Interval between contour values (ignored if levels parameter is supplied) Double  0 1
-simplify  Indicates whether contour lines are simplified  Boolean 0 1
-smooth  Indicates whether contour lines are smoothed using Bezier smoothing Boolean 0 1
-roi Geometry delineating the region of interest (in raster coordinate system) Geometry  0 1
-Outputs
-
-Name  Description Java type Minimum Maximum
-result  Contour line features. Contour level is in value attribute. SimpleFeatureCollection 1 1
-
 .. list-table::
    :header-rows: 1
 
@@ -101,7 +89,7 @@ Examples
 Creating elevation contour lines
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ``medford:elevation`` layer contains elevation data. The following example uses it to create elevation contour lines with an interval of 100m
+The ``medford:elevation`` layer contains elevation data. The following example uses it to create elevation contour lines with an interval of 100 meters.
 
 Input parameters:
 
@@ -130,9 +118,9 @@ The resulting lines feature collection looks like this:
 Creating temperature contour lines
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following example chains the ``gs:Contour`` with the `gs:BarnesSurface<processing.processes.raster.barnes>`_ to extract contour lines from a points feature collection. The ``gs:BarnesSeurface`` process computes an intermediate layer that is then vectorized to lines by the ``gs:Contour`` process.
+The following example chains the ``gs:Contour`` process with the `gs:BarnesSurface<processing.processes.raster.barnes>` process to extract contour lines from a points feature collection. The ``gs:BarnesSeurface`` process computes an intermediate layer that is then vectorized to lines by the ``gs:Contour`` process.
 
-Contour lines are computed for an interval of 5 degrees.
+Contour lines are computed for an interval of 1 degrees, and the computation is limited to the area of peninsular Spain.
 
 
 Input parameters for ``gs:BarnesSurface``:
@@ -140,24 +128,24 @@ Input parameters for ``gs:BarnesSurface``:
 * ``data``: ``world_globedata_temp``
 * ``valueAttr``: MxTmp
 * ``dataLimit``: [Blank]
-* ``scale``: 15
+* ``scale``: 1
 * ``convergence``: [Blank]
 * ``passes``: 3
-* ``minObservations``: 2
+* ``minObservations``: [Blank]
 * ``maxObservationDistance``: [Blank]
 * ``noDataValue``: [Blank]
-* ``pixelsPerCell``: 8
+* ``pixelsPerCell``: [Blank]
 * ``queryBuffer``: [Blank]
 * ``outputBBOX``: 
 
-  * ``minX``: -180
-  * ``minY``: -90
-  * ``maxX``: 180
-  * ``maxY``: 90
+  * ``minX``: -9.5
+  * ``minY``: 36
+  * ``maxX``: 3.5
+  * ``maxY``: 43.5
   * ``CRS``: ``EPSG:4326`` 
 
-* ``outputWidth``: 720
-* ``outputHeight``: 360
+* ``outputWidth``: 780
+* ``outputHeight``: 450
 
 Input parameters for ``gs:Contour``.
 
@@ -188,9 +176,9 @@ Notice that, in this case, the detail of contour lines is directly affected by t
 Related processes
 -----------------
 
-Other processes are available for converting a grid coverage into a feature collection (vectorizing). To extract polygons from a grid coverage, the :ref:`gs:PolygonExtraction <processing.processes.raster.polygonextraction>` can be used. To create a points feature collection, use the :ref:`gs:RasterAsPointCollection <processing.processes.raster.rasteraspoints>` process.
+* Other processes are available for converting a grid coverage into a feature collection (vectorizing). To extract polygons from a grid coverage, the :ref:`gs:PolygonExtraction <processing.processes.raster.polygonextraction>` can be used. To create a points feature collection, use the :ref:`gs:RasterAsPointCollection <processing.processes.raster.rasteraspoints>` process.
 
-The line simplification obtained by setting to true ``simplify`` parameter can be obtained by applying the `gs:Simplify<processing.processes.vector.simplify>`- process the the non-simplified contour lines obtained from the ``gs:Contour`` process when the ``simplify`` parameter is set to false.
+* The line simplification obtained by setting to true ``simplify`` parameter can be obtained by applying the `gs:Simplify<processing.processes.vector.simplify>`- process the the non-simplified contour lines obtained from the ``gs:Contour`` process when the ``simplify`` parameter is set to false.
 
 
 More information
