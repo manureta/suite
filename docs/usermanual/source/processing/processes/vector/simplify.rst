@@ -87,7 +87,7 @@ Input parameters:
 * ``features``: ``medford:streets``
 * ``distance``: ``0.002``
 
-:download:`Download complete XML request <xml/simplifyexample.xml>`
+:download:`Download complete XML request <xml/simplifyexample.xml>`.
 
 .. figure:: img/simplifyexampleUI.png
 

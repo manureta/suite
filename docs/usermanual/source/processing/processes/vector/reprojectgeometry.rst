@@ -3,12 +3,12 @@
 .. warning:: Document Status: **Requires copyedit review (MP)**
 
 ReprojectGeometry
-==================
+=================
 
 Description
 -----------
 
-The ``gs:ReprojectGeometry`` process reprojects a geometry from a given source :term:`CRS` into a new :term:`CRS`.
+The ``gs:ReprojectGeometry`` process reprojects a geometry from a given source :term:`CRS` into a new CRS.
 
 .. figure:: img/reprojectgeometry.png
 
@@ -94,4 +94,4 @@ The resulting geometry, expressed as a WKT string, is the following one:
 Related processes
 -----------------
 
-* To reproject a feature collection instead of a single geometry, use the :ref:`gs:Reproject<processing.processes.vector.reproject>` process instead.
+* To reproject a feature collection instead of a single geometry, use the :ref:`gs:Reproject <processing.processes.vector.reproject>` process instead.

@@ -1,6 +1,6 @@
 .. _processing.processes.vector.bounds:
 
-.. warning:: Document Status: **Requires copyedit review (MP)**
+.. warning:: Document Status: **Requires questions answered (MP)**
 
 Bounds
 ======
@@ -81,6 +81,8 @@ The output is a ``ReferencedEnvelope`` object, representing the rectangle with t
    </ows:BoundingBox>
 
 Related processes
--------------------
+-----------------
 
-This process is of interest for all those processes requiring an inut of type ``ReferenceEnvelope``. Chaining it with them can be used to automatically specify the envelope that covers the extent of a given feature collection.
+.. todo:: What is an input of type ``ReferenceEnvelope``?
+
+   "This process is of interest for all those processes requiring an input of type ``ReferenceEnvelope``. Chaining it with them can be used to automatically specify the envelope that covers the extent of a given feature collection."

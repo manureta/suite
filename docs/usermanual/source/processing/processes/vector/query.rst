@@ -77,6 +77,6 @@ Input Parameters:
 Relationship to other processes
 -------------------------------
 
-* The :ref:`gt:Transform <processing.processes.vector.transform>` process offers complementary functionality in that it allows attributes to be created or recomputed. The two processes can be chained to allow both filtering and computing of new attributes.
+* The :ref:`gs:Transform <processing.processes.vector.transform>` process offers complementary functionality in that it allows attributes to be created or recomputed. The two processes can be chained to allow both filtering and computing of new attributes.
 
 

@@ -10,15 +10,16 @@ This section describes the raster processes available with the OpenGeo Suite.
 
    addcoverages
    areagrid
-   barnessurface
    contour
    cropcoverage
    georectifycoverage
-   heatmap
+   getfullcoverage
    multiplycoverages
    polygonextraction
    rangelookup
    rasteraspoints
    rasterzonalstats
-   scaleraster
+   scalecoverage
+   storecoverage
+   stylecoverage
 

@@ -1,6 +1,5 @@
 .. _processing.processes.vector.bufferfc:
 
-
 BufferFeatureCollection
 =======================
 

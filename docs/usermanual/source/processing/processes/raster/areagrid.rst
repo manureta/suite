@@ -1,19 +1,16 @@
-.. _processing.processes.raster.addoverages:
+.. _processing.processes.raster.areagrid:
 
-.. warning:: Document Status: **Requires additional technical review and example (MP)**
+.. warning:: Document Status: **Requires images and questions answered (MP)**
 
 AreaGrid
-=================
+========
 
 Description
 -----------
 
-The ``gs:AreaGrid`` creates a new grid coverage with a given bounding box and cellsize, in which each cell contains the actual area it occupies.
+The ``gs:AreaGrid`` process creates a new grid coverage with a given bounding box and cell size, where each cell contains as its value the area it occupies.
 
-.. figure:: img/areagrid.png
-
-   *gs:AreaGrid*
-
+.. todo:: Image file missing: img/areagrid.png
 
 
 Inputs and outputs
@@ -31,8 +28,8 @@ Inputs
      - Description
      - Type
      - Usage
-   * - ``coverageA``
-     - Bounding box for the resulting raster, in WGS84 geographic coordinates.
+   * - ``envelope``
+     - Bounding box to be used for the resulting raster, in WGS84 geographic coordinates.
      - ReferencedEnvelope
      - Required
    * - ``width``
@@ -42,7 +39,9 @@ Inputs
    * - ``height``
      - Height of the resulting grid coverage, in cells
      - Integer
-     - Required    
+     - Required
+
+.. todo:: WPS request builder says width/height in pixels, not cells. Which is it?
 
 Outputs
 ~~~~~~~
@@ -55,25 +54,30 @@ Outputs
      - Type
    * - ``result``
      - The output grid coverage with area values
-     - :ref:`GridCoverage2D<processing.processes.formats.rasterout>`
+     - :ref:`GridCoverage2D <processing.processes.formats.rasterout>`
 
 
 Usage notes
 -----------
 
-* The input envelope is assumed to use WGS84. If it uses a different CRS, that information will be ignored, and only its coordinates will be used.
-* The output grid coverages has WGS84 as its CRS as well.
+* The input envelope is assumed to use WGS84. If the input envelope uses a different CRS, that information will be ignored, and only the coordinates will be used.
+* The output grid coverages will have a CRS of WGS84.
 * Area values are expressed in square meters.
-* Areas are calculated by reprojecting the original WGS84 coordinates of each cell boundary into an EckertIV projection.
+* Areas are calculated by reprojecting the original WGS84 coordinates of each cell boundary into an `Eckert IV <http://en.wikipedia.org/wiki/Eckert_IV_projection>`_ projection.
 
+.. todo:: In WPS request Builder, CRS is an option for envelope. If it's being ignored, is this a bug?
+
+.. todo:: Eckert IV? Why?
 
 Examples
----------
+--------
 
 Calculating areas for a grid coverage of 1-minute cells 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following example creates an area grid that covers the territory of peninsular Spain, with a cell resolution of 1 minute.
+The following example creates an area grid that covers the territory of peninsular Spain, with a cell resolution of 1 minute (1/60 of a degree).
+
+.. todo:: How is the above calculated and turned into the following parameters?
 
 Input parameters:
 
@@ -88,7 +92,7 @@ Input parameters:
 * ``width``: 780
 * ``height``: 450
 
-:download:`Download complete XML request <xml/areagrid.xml>`
+:download:`Download complete XML request <xml/areagrid.xml>`.
 
 .. figure:: img/areagridUI.png
 
@@ -96,8 +100,8 @@ Input parameters:
 
 .. figure:: img/areagridexample.png
 
-   *gs:AreaGrid example result*
+   *gs:AreaGrid example output*
 
-
+.. todo:: What is this image supposed to show? Where are the areas?
 
 

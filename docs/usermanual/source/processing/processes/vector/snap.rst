@@ -1,9 +1,9 @@
 .. _processing.processes.vector.snap:
 
-.. warning:: Document Status: **Requires copyedit review (MP)**
+.. warning:: Document Status: **Requires example image to be added (MP)**
 
 Snap
-========
+====
 
 Description
 -----------
@@ -11,7 +11,6 @@ Description
 The ``gs:Snap`` process computes the closest feature in a feature collection to a given point.
 
 The output of the process is a new feature collection that contains just one point belonging to an input feature, closest to the given input point. Apart from the original attributes in the input feature collection, two new attributes are added to the output collection, named ``nearest_bearing`` and ``nearest_distance``, which contain the bearing and distance from the given point to the computed nearest point.
-
 
 .. figure:: img/snap.png 
 
@@ -72,10 +71,9 @@ Examples
 --------
  
 Finding the nearest school to a given point
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This example shows how to calculate the closest school in the ``medford:schools`` layer, to a given point.
-
+This example shows how to calculate the closest school in the ``medford:schools`` layer to a given point. The ``point`` is defined using a WKT string.
 
 Input parameters:
 
@@ -83,18 +81,16 @@ Input parameters:
   - ``point``: ``POLYGON(-122.87, 42.39)``
   - ``crs``: [Blank]
 
-The ``point`` is defined using a WKT string.
-
-
 .. figure:: img/snapexampleUI.png 
 
    *gs:Snap example parameters*
 
 
-:download:`Download complete XMl request <xml/snapexample.xml>`.
+:download:`Download complete XML request <xml/snapexample.xml>`.
 
 The resulting feature collection contains a single point with coordinates (-122.908, 42.3796) and the following new attributes.
 
   - ``nearest_distance``: 2.1178
   - ``nearest bearing``: 173.1638
 
+.. todo:: Perhaps provide an image showing the locations of the points against the backdrop of the layer?

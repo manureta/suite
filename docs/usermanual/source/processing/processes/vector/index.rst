@@ -9,6 +9,7 @@ This section describes the vector processes available with the OpenGeo Suite.
    :maxdepth: 1
 
    aggregate
+   barnessurface
    bounds
    bufferfc
    centroid
@@ -17,11 +18,18 @@ This section describes the vector processes available with the OpenGeo Suite.
    count
    feature
    grid
+   heatmap
    import
    inclusionfc
    intersectionfc
+   lrsgeocode
+   lrsmeasure
+   lrssegment
    nearest
+   pointbuffers
+   pointstacker
    query
+   rectangularclip
    reproject
    reprojectgeometry
    simplify

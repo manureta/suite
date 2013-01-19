@@ -1,28 +1,30 @@
 .. _processing.processes.raster.georectifycoverage:
 
-.. warning:: Document Status: **Requires additional technical review and example (MP)**
+.. warning:: Document Status: **Requires example and images edited (MP)**
 
 GeorectifyCoverage
-=======================
+==================
 
 Description
 -----------
 
-The ``gs:GeorectofyCoverage`` process takes a grid coverage without geoeference information and a set of Ground-Control Points (GCPs), and creates a new grid coverage with georeference based on those GCPs.  This process is knows as *georectification*
-
+The ``gs:GeorectifyCoverage`` process takes a non-georeferenced grid coverage and, along with a set of "ground-control points" (GCPs), creates a georeferenced grid coverage.  This process is knows as *georectification*.
 
 .. figure:: img/georectifycoverage.png
 
    *gs:GeorectifyCoverage*
 
-A GCP is comprised of a pair of point coordinates, one containing the grid coordinates (row, column), and the other one containing the world coordinates of the corrsponding point location. A set of GCPs allows to compute a mathematical relationship between grid and world coordinates, thus allowing to georectify the full grid coverage.
+.. todo:: I don't think this image gets the idea of warping across.
 
-The process calls the external application ``gdal_warp``, who performs the actual process.
+A ground-control point is comprised of a pair of point coordinates, one containing the grid coordinates (row, column) and the other containing the world coordinates of the corresponding point location. A set of GCPs allows for computation of a mathematical relationship between grid and world coordinates, thus enabling georectification of a full grid coverage.
+
+The process calls the external application ``gdal_warp`` which performs the actual georectification process.
+
 
 Inputs and outputs
 ------------------
 
-This process accepts :ref:`processing.processes.formats.rasterin` and returns :ref:`processing.processes.formats.fcout`.
+This process accepts :ref:`processing.processes.formats.rasterin` and returns :ref:`processing.processes.formats.rasterout`.
 
 Inputs
 ~~~~~~
@@ -61,7 +63,7 @@ Inputs
    * - ``warpOrder``
      - Order of the warping polynomial (1 to 3)
      - Integer
-     - Required  
+     - Required
    * - ``transparent``
      - Force output to have transparent background
      - Boolean
@@ -87,7 +89,7 @@ Outputs
    * - ``result``
      - The georectified output grid coverage.
      - :ref:`GridCoverage2D <processing.processes.formats.rasterout>`
-   * - ``result``
+   * - ``path``
      - The pathname of the generated raster in the server.
      - String 
 
@@ -95,15 +97,14 @@ Outputs
 Usage notes
 -----------
 
-* Points are entered as a string of space-separated values in the form of [x, y] of [x, y, z]. Notice the blank space after the comma.
-* Each GCP is formed by two points. The first one is asummed to contain the grid coordinates, and the second one the world coordinates
-* The output layer is produced in the CRS of the selected ``targetCRS``. Coordinates of GCPs are assumed to use that CRS.
-* If the ``bbox`` parameter is used, the output layer will be clipped to its extent.
-* Coordinates of this clipping bounding box are also assumed to be in the selected ``targetCRS``
-* ``width`` and ``height`` parameter must be provided together. If only one of them is used, it will be ignored.
+* Points are entered as a string of comma *and* space-separated values in the form of [x, y] or [x, y, z].
+* Each ground-control point is formed by two coordinates. The first contains the grid coordinates, and the second contains the world coordinates.
+* The output layer is produced in the CRS of the selected ``targetCRS``. Coordinates of GCPs are assumed to use the same CRS.
+* If the ``bbox`` parameter is used, the output layer will be clipped to that extent.
+* Coordinates of the clipping bounding box are assumed to be in the selected ``targetCRS``.
 * If ``width`` and ``height`` parameters are used, the resulting georectified coverage will be resampled to adapt to those values.
+* The ``width`` and ``height`` parameters must both be provided, otherwise either will be ignored.
 
+.. todo:: Example needed.
 
-Examples
---------
-
+.. todo:: Please elaborate on ``warpOrder``. It's not clear to me what this parameter does.

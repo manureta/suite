@@ -33,7 +33,7 @@ Inputs
      - Required
    * - ``first feature collection``
      - First feature collection, which contains the features that will be filtered
-     - SimpleFeatureCollection
+     - :ref:`SimpleFeatureCollection <processing.processes.formats.fcin>`
      - Yes
    * - ``second feature collection``
      - Second feature collection. Only features from the first feature collection contained within the features of this feature collection will be included in the output.

@@ -60,9 +60,10 @@ Usage notes
 * The :term:`CRS` of the first input feature collection is used for the output feature collection.
 * Identical features in both input collections will both be preserved as individual features, and will not be combined.
 * The attributes list in the output will be a union of the input attributes. If one of the input features doesn't have a particular attribute present in the other input features, the attribute value will be left blank.
-* If two fields with the same name exist in both input feature collections, only one attribute with that name will be added to the output feature collection, and values taken from both input feature collections.* If attributes with the same name have different types in each input feature collection, an attribute of type ``String`` will be added to the output feature collection, and the string representation of values from the input feature collections will be used.
+* If two fields with the same name exist in both input feature collections, only one attribute with that name will be added to the output feature collection, and values taken from both input feature collections.
+* If attributes with the same name have different types in each input feature collection, an attribute of type ``String`` will be added to the output feature collection, and the string representation of values from the input feature collections will be used.
 
-.. todo:: Example needed
+.. todo:: Example needed.
 
 
 Related processes

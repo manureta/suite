@@ -102,7 +102,7 @@ Input parameters for ``gs:Import``:
 * ``srsHandling``: ``FORCE_DECLARED``
 * ``styleName``: [blank]
 
-:download:`Download complete chained XML request <xml/importexample.xml>`
+:download:`Download complete chained XML request <xml/importexample.xml>`.
 
 .. figure:: img/importexampleUI.png
 
@@ -112,7 +112,7 @@ The resulting feature collection is added to the corresponding datastore and pub
 
 .. figure:: img/importexample.png
 
-   *gs:Import example result*
+   *gs:Import example output*
 
 
 

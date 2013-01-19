@@ -73,7 +73,7 @@ Input parameters:
 * ``features``: ``world:borders``
 * ``clip``: ``POLYGON((-125 25, -67 25, -67 50, -125 50, -125 25))``
 
-:download:`Download complete XML request <xml/clipexample.xml>`
+:download:`Download complete XML request <xml/clipexample.xml>`.
 
 .. figure:: img/clipexampleUI3.png
 
@@ -103,7 +103,7 @@ Input parameters for ``gs:Clip``:
 * ``features``: ``medford:streets``
 * ``clip``: output from ``gs:CollectGeometries`` process
 
-:download:`Download complete chained XML request <xml/clipexample2.xml>`
+:download:`Download complete chained XML request <xml/clipexample2.xml>`.
 
 .. figure:: img/clipexampleUI.png
 
@@ -121,6 +121,5 @@ Related processes
 -----------------
 
 * The :ref:`gs:IntersectionFeatureCollecion <processing.processes.vector.intersectionfc>` process performs a similar operation on the input geometries, except the attributes of the result are not directly copied over. Instead, a list of attributes from each of the input layers is provided as a configuration parameter.
-* To crop one feature collection using another feature collection instead of a geometry, use the ``gs:CollectGeometries`` process to create a ``GeometryCollection`` object from the feature collection, and use that object as the ``clip`` (geometry) input for ``gs:Clip``.
-
+* To crop one feature collection using another feature collection instead of a geometry, use the :ref:`gs:CollectGeometries <processing.processes.vector.collectgeoms>` process to create a ``GeometryCollection`` object from the feature collection, and use that object as the ``clip`` (geometry) input for ``gs:Clip``.
 

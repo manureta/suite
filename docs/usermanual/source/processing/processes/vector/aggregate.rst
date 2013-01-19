@@ -72,7 +72,7 @@ Usage notes
 -----------
 
 * The ``aggregationAttribute`` input parameter is case-sensitive.
-* The ``aggregationAttribute`` input parameter is ignored when using ``Count``.
+* When using ``Count`` function, the ``aggregationAttribute`` input parameter is ignored.
 
 Examples
 --------
@@ -90,7 +90,7 @@ Input parameters:
 * ``function``: ``Sum``
 * ``singlePass``: ``False``
 
-:download:`Download complete XML request <xml/aggregateexample.xml>`
+:download:`Download complete XML request <xml/aggregateexample.xml>`.
 
 .. figure:: img/aggregateexampleUI.png
 
@@ -122,7 +122,7 @@ Input parameters for ``gs:Aggregate``:
 * ``function``: ``Sum``
 * ``singlePass``: ``False``
 
-:download:`Download complete XML request <xml/aggregateexample2.xml>`
+:download:`Download complete XML request <xml/aggregateexample2.xml>`.
 
 .. figure:: img/aggregateexampleUI2.png
 

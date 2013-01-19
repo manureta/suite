@@ -1,6 +1,6 @@
 .. _processing.processes.raster.polygonextraction:
 
-.. warning:: Document Status: **Requires additional technical review and example (MP)**
+.. warning:: Document Status: **Requires images edited and questions answered (MP)**
 
 PolygonExtraction
 =================
@@ -8,19 +8,23 @@ PolygonExtraction
 Description
 -----------
 
-The ``gs:PolygonExtraction`` process takes an input raster and creates a polygon feature collection. Polygons represent areas in the input coverage that contain equal values. Polygons are traced using the cell boundaries.
+The ``gs:PolygonExtraction`` process takes an input raster and creates a polygon feature collection. Polygons represent areas in the input coverage that contain equal values. Polygons are traced using the cell boundaries. This process is useful if the layer contains areas of several contiguous cells with the same value.
 
 .. figure:: img/polygonextraction.png
 
    *gs:PolygonExtraction*
 
-This approach is useful if the layer contains areas of several contiguous cells with the same value. The process can also perform a reclassification to group cells within a set of ranges so they are considered as belonging to the same class, which is useful when working with grid coverages such as a DEM (digital elevation model), which contain a continuous (non-discrete) variable, where neighbor pixels usually don't share the same values.
+.. todo:: This graphic is incorrect (look at the 2).
+
+ The process can also perform a reclassification to group cells within a set of ranges so they are considered as belonging to the same class, which is useful when working with grid coverages such as a DEM (digital elevation model) or other raster with a continuous (non-discrete) variable, where neighbor pixels usually don't share the same values.
 
 .. figure:: img/polygonextraction2.png
 
    *gs:PolygonExtraction using predefined ranges*
 
-Certain values can be left outside of the polygon extraction process, defining them as no-data values. Cells with those values will be ignored and no polygon will be created from them.
+.. todo:: This graphic is also incorrect (see 6).
+
+Certain values can be left outside of the polygon extraction process, defining them as ``NODATA`` values. Cells with those values will be ignored and no polygon will be created from them.
 
 Also, certain areas can be left outside of the polygon extraction process by defining a "region of interest" using a geometry. If so, analysis will be limited to those cells within that region.
 
@@ -59,7 +63,7 @@ Inputs
      - :ref:`Geometry <processing.processes.formats.geomin>`
      - Optional
    * - ``nodata``
-     - Values to classify as no-data
+     - Values to classify as ``NODATA``
      - Integer
      - Optional  
    * - ``ranges``
@@ -77,14 +81,17 @@ Outputs
      - Description
      - Type
    * - ``result``
-     - The output feature collection, with the vectorized polygons.
-     - :ref:`SimpleFeatureCollection<processing.processes.formats.fcout>`
+     - Output feature collection
+     - :ref:`SimpleFeatureCollection <processing.processes.formats.fcout>`
 
 
 Usage notes
 -----------
 
 * The ``nodata`` parameter is entered as a string of comma-separated values. For instance: ``"0, -1, 2.2"``.
+
+.. todo:: Are the quotes required?
+
 * If the ``ranges`` parameter is used, the value of the ``nodata`` parameter is ignored. All values not belonging to any of the defined ranges will be considered no-data values.
 * If the ``ranges`` parameter is used, the ``value`` attribute in the output feature collection will contain the (zero-based) index of the range, not the original value of the cells in the grid coverage.
 * Non-adjacent regions with the same value will yield different features.
@@ -100,10 +107,10 @@ Usage notes
 
 
 Examples
----------
+--------
 
 Creating a polygon from an elevation range
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This example creates a polygon feature collection corresponding to all areas in the ``meford:elevation`` grid coverage with an elevation between 1000 and 1500 meters.
 
@@ -116,8 +123,7 @@ Input parameters:
 * ``noData``: [Blank]
 * ``ranges``: (1000;1500)
 
-
-:download:`Download complete XML request <xml/polygonextraction.xml>`
+:download:`Download complete XML request <xml/polygonextraction.xml>`.
 
 .. figure:: img/polygonextractionUI.png
 
@@ -125,13 +131,11 @@ Input parameters:
 
 .. figure:: img/polygonextractionexample.png
 
-   *gs:PolygonExtraction example result*
-
-
+   *gs:PolygonExtraction example output*
 
 Related processes
 -----------------
 
-* This process is the inverse of the :ref:`gs:VectorToRaster <processing.processes.vector.vectortoraster>` process, which creates a grid coverage from a feature collection.
-* Other processes are available to convert from a grid coverage into a feature collection. To create a points feature collection, use the :ref:`gs:RasterAsPointCollection <processing.processes.raster.rasteraspoints>` process. To create a lines feature collection with contour lines from a grid coverage, use the :ref:`gs:Contour <processing.processes.raster.contour>` process.
+* If working with polygons, this process is the inverse of the :ref:`gs:VectorToRaster <processing.processes.vector.vectortoraster>` process, which creates a grid coverage from a feature collection.
+* Other processes are available to convert from a grid coverage into a feature collection. To create a points feature collection, use the :ref:`gs:RasterAsPointCollection <processing.processes.raster.rasteraspoints>` process. To create a lines feature collection with contour lines from a coverage, use the :ref:`gs:Contour <processing.processes.raster.contour>` process.
 

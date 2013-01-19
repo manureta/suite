@@ -112,7 +112,7 @@ Input parameters:
 * ``areasEnabled``: False
 * ``percentagesEnabled``: False
 
-:download:`Download complete XML request <xml/intersectionfcexample.xml>`
+:download:`Download complete XML request <xml/intersectionfcexample.xml>`.
 
 .. figure:: img/intersectionfcexampleUI.png
 
@@ -141,7 +141,7 @@ Input parameters:
 * ``areasEnabled``: False
 * ``percentagesEnabled``: False
 
-:download:`Download complete XML request <xml/intersectionfcexample2.xml>`
+:download:`Download complete XML request <xml/intersectionfcexample2.xml>`.
 
 The resulting schema contains all the attributes from the ``world:volcanoes`` feature collection plus an attribute from ``world:borders`` containing the name of the country the corresponding volcano belongs to.
 

@@ -55,6 +55,6 @@ Usage notes
 Related processes
 -----------------
 
-* This process is useful for all those processes taking inputs of type :ref:`Geometry <processing.processes.geometry>`, as it can "convert" feature collections to geometries. To see an example of such usage, see the Examples section for the :ref:`gs:Clip <processing.processes.vector.clip>` process.
+* This process is useful for all those processes taking inputs of type ``Geometry``, as it can "convert" feature collections to geometries. To see an example of such usage, see the Examples section for the :ref:`gs:Clip <processing.processes.vector.clip>` process.
 * To perform the opposite conversion and generate a feature collection from a geometry, use the :ref:`gs:Feature <processing.processes.vector.feature>` process.
 

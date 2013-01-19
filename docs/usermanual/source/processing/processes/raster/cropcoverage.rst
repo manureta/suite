@@ -68,12 +68,12 @@ Input parameters for ``gs:CollectGeometries``:
 
 * ``features``: ``medford:citylimits``
 
-Input parameters for ``gs:CropCoverage``.
+Input parameters for ``gs:CropCoverage``:
 
 * ``coverage``: ``medford:elevation``
 * ``cropShape``: Output from ``gs:CollectGeometries``
 
-:download:`Download complete chained XML query <xml/cropcoverageexample.xml>`.
+:download:`Download complete chained XML request <xml/cropcoverageexample.xml>`.
 
 .. figure:: img/cropcoverageexampleUI.png
 

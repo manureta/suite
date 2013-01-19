@@ -56,7 +56,7 @@ Usage notes
 
 * A :term:`CRS` identifier can be provided to indicate the CRS of the geometry. The identifier is a standard EPSG code, such as ``EPSG:4326``. Some geometry input formats (such as GML) allow specifying the geometry CRS directly.
 * The name of the output attribute containing the geometry is ``geom``.
-* No other attributes are created.
+* No other attributes are created in the output feature collection.
 
 Examples
 --------
@@ -78,5 +78,5 @@ Input parameters:
 Relationship to other processes
 -------------------------------
 
-* The :ref:`gt:CollectGeometries <processing.processes.vector.collectgeoms>` process is the inverse of this process—it converts a feature collection into a single geometry.
+* The :ref:`gs:CollectGeometries <processing.processes.vector.collectgeoms>` process is the inverse of this process—it converts a feature collection into a single geometry.
 * If additional scalar-valued attributes are needed, they can be added by chaining this process into the :ref:`gs:Transform <processing.processes.vector.transform>`  process.

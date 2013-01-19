@@ -58,15 +58,15 @@ Usage notes
 
 * If a feature collection consisting of point geometries is supplied, the output will be identical to the input.
 
+
 Examples
 --------
- 
 
 Finding the centroids of the polygons in the ``medford:zoning`` layer:
 
   - ``features``: ``medford:zoning``
 
-  :download:`Download complete XMl request <xml/centroidexample.xml>`.
+  :download:`Download complete XML request <xml/centroidexample.xml>`.
 
   .. figure:: img/centroid-med.png
   

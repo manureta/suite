@@ -1,26 +1,26 @@
 .. _processing.processes.raster.rasterzonalstats:
 
-.. warning:: Document Status: **Requires additional technical review and example (MP)**
+.. warning:: Document Status: **Requires images edited and questions answered (MP)**
 
 RasterZonalStatistics
-======================
+=====================
 
 Description
 -----------
 
-The ``gs:RasterZonalStatistics`` calculates statistics of a given raster layer within the polygons of a feature collection`` 
+The ``gs:RasterZonalStatistics`` process calculates statistics of a given raster layer within the polygons of a feature collection. The output feature collection contains all the attributes of the original feature collection, along with new attributes where statistics are stored. The following statistics are computed: **count**, **average**, **minimum value**, **maximum value**, **standard deviation**, and **sum**.
 
 .. figure:: img/rasterzonalstats.png
 
-   *gs:rangelookup*
+   *gs:RasterZonalStatistics*
 
-An additional grid coverage with categories can be specified, so statistics are calculated considering both the polygons and the classes defined by this second grid coverage
+An additional grid coverage with categories can be specified, in which case the statistics would be calculated considering both the polygons and the classes defined by this second grid coverage
 
 
 Inputs and outputs
 ------------------
 
-This process accepts :ref:`processing.processes.formats.rasterin` :ref:`processing.processes.formats.fcin`, and returns :ref:`processing.processes.formats.fcout`.
+This process accepts :ref:`processing.processes.formats.rasterin` along with :ref:`processing.processes.formats.fcin`, and returns :ref:`processing.processes.formats.fcout`.
 
 Inputs
 ~~~~~~
@@ -43,13 +43,11 @@ Inputs
    * - ``zones``
      - Zone polygon features for which to compute statistics
      - :ref:`SimpleFeaturesCollection<processing.processes.formats.fcin>`
-     - Optional       
+     - Optional
    * - ``classification``
      - Raster whose values will be used as classes for the statistical analysis
      - :ref:`GridCoverage2D <processing.processes.formats.rasterin>`
-     - Optional   
-   
-       
+     - Optional 
 
 Outputs
 ~~~~~~~
@@ -61,27 +59,32 @@ Outputs
      - Description
      - Type
    * - ``statistics``
-     - The output feature collection with statistics of the input grid coverage
-     - :ref:`SimpleFeaturesCollection<processing.processes.formats.fcout>`
+     - Output feature collection with statistics of the input grid coverage
+     - :ref:`SimpleFeatureCollection <processing.processes.formats.fcout>`
 
 
 Usage notes
 -----------
 
-* Input layers can have different CRS's, and they will be reprojected if needed.
-* If used, the ``classification`` parameter must be a grid coverage with one single band and integer values representing classes.
-* The output feature collection contains all the attributes of the original feature collection, along with the following new ones where statistics are stored: *count, min, max, sum, avg, stddev*.
-* Original attributes do not keep their original names, but are prefixed with the *z_* prefix instead.
-* If a classification grid coverage is used, statistics are partitioned by classes according to the values in that coverage.
-* If no cells are found within a given polygon to calculate of the parameters above, a NaN (Not a number) value will be assigned.
+.. todo::
+
+   Please elaborate on this. Which layers are you talking about? Which one will be reprojected to the other?
+
+   "* Input layers can have different CRS's, and they will be reprojected if needed."
+
+* If used, the ``classification`` parameter must be a coverage with a single band consisting of integer values representing classes.
+* The names of the attributes where the statistics are stored are: ``count``, ``min``, ``max``, ``sum``, ``avg``, and ``stddev``.
+* Original attributes do not keep their exact original names, but are instead prefixed with the ``z_`` prefix.
+* If a classification coverage is used, statistics are partitioned by classes according to the values in that coverage.
+* If no cells are found within a given polygon to calculate of the parameters above, a ``NaN`` ("not a number") value will be assigned.
 
 Examples
----------
+--------
 
 Calculating elevation statistics for parks
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following example calculates elevation statistics for the parks in the Medford area. To do so, it uses the ``medford:elevation`` coverage and the ``medford:parks`` feature collection
+The following example calculates elevation statistics for the parks in the Medford area. To do so, it uses the ``medford:elevation`` coverage and the ``medford:parks`` feature collection.
 
 Input parameters:
 
@@ -90,16 +93,16 @@ Input parameters:
 * ``zones``: ``medford:parks``
 * ``classification``: [Blank]
 
-:download:`Download complete XML request <xml/rasterzonalstats.xml>`
+:download:`Download complete XML request <xml/rasterzonalstats.xml>`.
 
 .. figure:: img/rasterzonalstatsUI.png
 
    *gs:RasterZonalStatistics example parameters*
 
-
+.. todo:: Result image?
 
 Related processes
 -----------------
 
-* The ``gs:VectorZonalStats<processing.processes.raster.vectorzonalstats>`` performs a similar analysis, but taking a points layer instead of a raster layer, and calculating statistics of those points that fall within each polygon.
+* The :ref:`gs:VectorZonalStats <processing.processes.vector.vectorzonalstats>` performs a similar analysis, but uses as input a points layer instead of a raster layer and calculates statistics of those points that fall within each polygon.
 
