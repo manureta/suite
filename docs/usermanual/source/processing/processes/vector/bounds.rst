@@ -83,6 +83,5 @@ The output is a ``ReferencedEnvelope`` object, representing the rectangle with t
 Related processes
 -----------------
 
-.. todo:: What is an input of type ``ReferenceEnvelope``?
 
-   "This process is of interest for all those processes requiring an input of type ``ReferenceEnvelope``. Chaining it with them can be used to automatically specify the envelope that covers the extent of a given feature collection."
+This process is of interest for all those processes requiring an input of type ``ReferenceEnvelope``. The ``ReferenceEnvelope`` class represents a bounding box expressed as its four coordinates (``minX, maxX, minY, maxY``) and a CRS. It is required by processes that require an analysis region to be defined.  Chaining this process with those others requiring a ``Reference Envelope`` object can be used to automatically specify the envelope that covers the extent of a given feature collection, instead of manually entering the correspponding coordinates and CRS.

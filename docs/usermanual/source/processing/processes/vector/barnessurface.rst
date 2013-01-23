@@ -112,9 +112,8 @@ Usage notes
 * The input points feature collection can have a CRS different to the CRS of the ``outputBBox`` parameter. In that case, points are reprojected before interpolating.
 * A minimum number of points (indicated by the ``minObservations`` parameter) is needed to assign a value to a given cell. If the number of points in the defined neighborhood of the cell is lower than the minimum number of required points, the cell will get the ``NODATA`` value. This value can be set using the optional ``noDataValue`` parameter.
 * Using a lower value of the ``maxObservationDistance`` parameter implies a better accuracy, since fewer points are used to calculate the value at a given cell, but it may cause more cells to be populated with a ``NODATA`` value, if the number of observations within the maximum observation distance is lower than the required minimum (``minObservations``)
-* The Barnes interpolation is only suitable for interpolating continuous values, and not for categorical values where in intermediate value would not make sense.
+* The Barnes interpolation is only suitable for interpolating continuous values, and not for categorical values where in intermediate value would not make sense. for instance, a points layer containing data from soil samples such as soil pH, percentage of clay and soil type can be interpolated using the first two variables, but not the soil type, since values of that variable are arbitrary values used to represent a given category.
 
-.. todo:: Give a quick example of a data set where Barnes would not be suitable.
 
 Examples
 --------
@@ -122,31 +121,31 @@ Examples
 Creating a max temperature coverage from station data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ``world:globedata_temp`` layer contains several temperature measures for a set of stations. Using its ``MxTmp`` attribute, which contains maximum temperature values, this example will use the ``gs:BarnesSurface`` process to generate a coverage consisting of maximum temperatures for the entire Earth.
+The ``world:globedata_temp`` layer contains several temperature measures for a set of stations. Using its ``MxTmp`` attribute, which contains maximum temperature values, this example will use the ``gs:BarnesSurface`` process to generate a coverage consisting of maximum temperatures for an area covering the Iberian peninsula.
 
 Input parameters:
 
 * ``data``: ``world_globedata_temp``
 * ``valueAttr``: ``MxTmp``
 * ``dataLimit``: [Blank]
-* ``scale``: 15
+* ``scale``: 5
 * ``convergence``: [Blank]
 * ``passes``: 3
 * ``minObservations``: 2
 * ``maxObservationDistance``: 15
 * ``noDataValue``: [Blank]
-* ``pixelsPerCell``: 8
+* ``pixelsPerCell``: 2
 * ``queryBuffer``: [Blank]
 * ``outputBBOX``: 
 
-  * ``minX``: -180
-  * ``minY``: -90
-  * ``maxX``: 180
-  * ``maxY``: 90
+  * ``minX``: -9.5
+  * ``minY``: 36
+  * ``maxX``: 3.5
+  * ``maxY``: 43.5
   * ``CRS``: ``EPSG:4326`` 
 
-* ``outputWidth``: 720
-* ``outputHeight``: 360
+* ``outputWidth``: 780
+* ``outputHeight``: 450
 
 
 :download:`Download complete XML request <xml/barnesexample.xml>`.

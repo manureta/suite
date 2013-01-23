@@ -66,12 +66,7 @@ Outputs
 Usage notes
 -----------
 
-.. todo::
-
-   Please elaborate on this. Which layers are you talking about? Which one will be reprojected to the other?
-
-   "* Input layers can have different CRS's, and they will be reprojected if needed."
-
+* Input layers can have different CRS's. If the ``classification`` or ``zones`` layers do not have the same CRS as the ``data`` layer, they will be reprojected to the CRS of the ``data`` layer, and the statistic will be later calculated with all layer in the same CRS.
 * If used, the ``classification`` parameter must be a coverage with a single band consisting of integer values representing classes.
 * The names of the attributes where the statistics are stored are: ``count``, ``min``, ``max``, ``sum``, ``avg``, and ``stddev``.
 * Original attributes do not keep their exact original names, but are instead prefixed with the ``z_`` prefix.

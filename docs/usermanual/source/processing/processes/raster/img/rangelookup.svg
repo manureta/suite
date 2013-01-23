@@ -76,7 +76,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -435,14 +435,14 @@
          sodipodi:role="line"
          id="tspan3487"
          x="269.15799"
-         y="412.61374">(1,5] = 1</tspan><tspan
+         y="412.61374">(1;5] = 1</tspan><tspan
          sodipodi:role="line"
          x="269.15799"
-         y="443.30167"
-         id="tspan3489">(5,8] = 2</tspan><tspan
+         y="443.3017"
+         id="tspan3489">(5;8] = 2</tspan><tspan
          sodipodi:role="line"
          x="269.15799"
          y="473.98965"
-         id="tspan3491">(8,10) = 3</tspan></text>
+         id="tspan3491">(8;10) = 3</tspan></text>
   </g>
 </svg>

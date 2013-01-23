@@ -54,7 +54,7 @@ Usage notes
 -----------
 
 * The output point feature collection has the same CRS as the input grid coverage.
-* If the input layer contains ``NODATA`` values, those will appear in the resulting layer with its original value. The process does not make any distinction, and will not label those values as no-data or null by using a particular value, but will enter the actual value of the grid coverage instead.
+* If the input layer contains ``NODATA`` values, those will appear in the resulting layer with their original values. The process does not make any distinction, and will not label those values as null, but will enter the actual value of the grid coverage instead. Since a missing value is indicated in an feature collection with a null value, those points that have been created from a NODATA cell using this process will not be interpreted by other processes as points without a value, but rather as points with a valid value.
 
 .. todo:: NODATA is NODATA is NODATA, right? What is this bullet point trying to say?
 

@@ -79,11 +79,7 @@ Usage notes
   * To create two ranges, one with all the values less than or equal to 1000, and another one with all values greater than 1000, the following string would be used: ``(;1000] (1000;)``
 
 
-.. todo::
-
-   Please explain what a "small" data type is.
-
-   "* The data type of the output is the smallest one that can hold the values used as new class values (those in the ``outputPixelvalues`` parameter)."
+* The data type of the output is the smallest one that can hold the values used as new class values (those in the ``outputPixelvalues`` parameter). For instance, the ``byte`` data type takes 8 bits per value and can hold values in the [-128, 127] range. If a reclassified value of 300 is entered in the ``outputPixelValues``, the resulting grid cannot use the ``byte`` data type. It should use the ``short`` data type, which uses 16bits and can hold that value. Notice that this is not related to the number of classes defined in the ``outputPixelValues`` parameter, but rather to the magnitude of the values.
 
 
 Examples
@@ -92,7 +88,7 @@ Examples
 Selecting suitable slope areas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This example finds all the areas in the ``medford:slope`` layer with a slope less than 15 degrees. The layer contains slope values in percentage, and the following example classifies them in two groups (suitable = 1, not suitable = 0) using the ``gs:RangeLookup`` process.
+Assuming that a certain process occurs only in areas with a slope lower than 15%, this example finds all the areas in the ``medford:slope`` layer that are suitable for that process. The layer contains slope values in percentage, and the following example classifies them in two groups (suitable = 1, not suitable = 0) using the ``gs:RangeLookup`` process.
 
 
 Input parameters:
@@ -102,8 +98,6 @@ Input parameters:
 * ``ranges``: (0;15)
 * ``noData``: [Blank]
 * ``outputPixelValues``: 1
-
-.. todo:: 15?
 
 :download:`Download complete XML request <xml/rangelookup.xml>`.
 
@@ -120,5 +114,3 @@ Related processes
 -----------------
 
 * The :ref:`gs:PolygonExtraction <processing.processes.raster.polygonextraction>` performs a similar reclassification to create an intermediate grid from which polygons can be extracted.
-
-.. todo:: I tried to rephrase the above, but not sure I did a good job of it.

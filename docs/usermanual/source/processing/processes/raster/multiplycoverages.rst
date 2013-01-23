@@ -8,9 +8,8 @@ MultiplyCoverages
 Description
 -----------
 
-The ``gs:MultiplyCoverages`` process takes two input grid coverages with a single band and performs a cell-by-cell multiplication on them, generating a new grid coverage. Each cell in the output grid has the value resulting from the multiplication of the corresponding values for that same cell in the input grids.
+The ``gs:MultiplyCoverages`` process takes two input grid coverages with a single band and performs a cell-by-cell multiplication on them, generating a new grid coverage. Each cell in the output grid has the value resulting from the multiplication of the corresponding values for that same cell in the input grids. Coverages are assumed to have a single band. If multiband layers are entered, only the values in the first band will be used.
 
-.. todo:: What happens if you input a multiband raster?
 
 .. figure:: img/multiplycoverages.png
 
@@ -63,12 +62,7 @@ Usage notes
 * The output coverage will have the same bounding box and cell size as the input.
 * Both input grids must have only one band.
 * This process can be used to "mask" certain cells in a given raster by using a mask grid with zero or ``NODATA`` values in those cells to be masked out. This is useful as a data-preparation technique when it is desired to restrict data to a certain area.
-
-.. todo::
-
-   The original note here seems a bit abstruse. Is this a common use case? I'd like more details here, or convert this into an example.
-
-   "* Given two probability raster with values in the (0,1) range (such as those produced by the ``gs:Heatmap`` process), applying this process to them represents the equivalent of a fuzzy logic AND operation."
+* Given two grid coverages with values in the (0,1) range representing probability (such as those produced by the ``gs:Heatmap`` process)  or suitability for a given activity, applying this process to them represents the equivalent of a fuzzy logic AND operation. This technique is commonly used in multi-criteria evaluation, multiplying grid coverages that contain a suitability value considering a single factor, to obtain the compound suitability of the activity considering all factors together. For instance, given an activity that is affected by terrain slope and temperature, and two grid coverages representing the corresponding suitability for each of those factors, the result of multiplying them is the suitability for that activity, considering both slope and temperature. As both coverages have values ranging from 0 to 1, the resulting values will also be within that range. A value of 0 (completely unsuitable) in a cell in one of the input grid coverages will result in a 0 value for that cell in the resulting coverage.
 
 Examples
 --------
@@ -98,7 +92,6 @@ Input parameters for ``gs:MultiplyCoverages``
 
    *gs:MultiplyCoverages example parameters (part 1)*
 
-.. todo:: Range parameter is (1000-1500) in this graphic, but (1000;1500) in the above. Is the graphic wrong?
 
 .. figure:: img/multiplycoveragesUI2.png
 

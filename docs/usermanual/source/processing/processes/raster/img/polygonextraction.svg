@@ -14,7 +14,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.2 r9819"
-   sodipodi:docname="cropcoverage.svg">
+   sodipodi:docname="polygonextraction.svg">
   <defs
      id="defs4">
     <marker
@@ -62,7 +62,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -127,7 +127,7 @@
            y="363.02451"
            x="288.96878"
            id="tspan4398-8-5"
-           sodipodi:role="line"> 0       2        2       2</tspan></text>
+           sodipodi:role="line"> 0       0        2       2</tspan></text>
       <rect
          y="93.175865"
          x="267.90274"

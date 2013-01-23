@@ -104,7 +104,7 @@ Usage notes
 * Coordinates of the clipping bounding box are assumed to be in the selected ``targetCRS``.
 * If ``width`` and ``height`` parameters are used, the resulting georectified coverage will be resampled to adapt to those values.
 * The ``width`` and ``height`` parameters must both be provided, otherwise either will be ignored.
+* the ``warpOrder`` parameter defines the order of the polinomial used for the warping transformation. Larger order might yield more accurate results, as they are able to represent the transformation with more detail. However, since there are more coefficients that have to be solved to define the transformation polinomial, a higher order requires more GCPs. For a polinomial of order 2, at least 6 GCPs are needed. For a polinomial of order 3, at least 10 GCPs are needed.
 
 .. todo:: Example needed.
 
-.. todo:: Please elaborate on ``warpOrder``. It's not clear to me what this parameter does.

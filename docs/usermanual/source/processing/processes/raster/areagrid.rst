@@ -60,7 +60,7 @@ Outputs
 Usage notes
 -----------
 
-* The input envelope is assumed to use WGS84. If the input envelope uses a different CRS, that information will be ignored, and only the coordinates will be used.
+* The input envelope is assumed to use WGS84. If the input envelope uses a different CRS, that information will be ignored, and only the coordinates will be used. Notice that, although the CRS is not used, the parameter is of type ``ReferencedEnvelope`` (that is, a bounding box with a CRS), so a CRS has to be provided anyway.
 * The output grid coverages will have a CRS of WGS84.
 * Area values are expressed in square meters.
 * Areas are calculated by reprojecting the original WGS84 coordinates of each cell boundary into an `Eckert IV <http://en.wikipedia.org/wiki/Eckert_IV_projection>`_ projection.
@@ -75,9 +75,7 @@ Examples
 Calculating areas for a grid coverage of 1-minute cells 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following example creates an area grid that covers the territory of peninsular Spain, with a cell resolution of 1 minute (1/60 of a degree).
-
-.. todo:: How is the above calculated and turned into the following parameters?
+The following example creates an area grid that covers the territory of peninsular Spain, with a cell resolution of 1 minute (1/60 of a degree). To calculate the corresponding width and height values, the width (*maxX - minX*) and height (*maxY - minY*) of the bounding box in degrees are multiplied by 60.
 
 Input parameters:
 
@@ -102,6 +100,6 @@ Input parameters:
 
    *gs:AreaGrid example output*
 
-.. todo:: What is this image supposed to show? Where are the areas?
+Higher values (larger areas per pixel) in the image are represented in white, while lower values (smaller areas per pixel) are represented in black. The area of a pixel decreases as we move up North, as shown in the above image.
 
 

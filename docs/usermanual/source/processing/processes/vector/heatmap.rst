@@ -10,7 +10,7 @@ Description
 
 The ``gs:Heatmap`` process takes a points feature collection and generates a raster layer representing the density of those features.
 
-Calculation is done by taking a given radius around each cell of the resulting grid coverage and adding up the values from features falling within that radius. The "influence" of a feature is determined by its distance to the cell. Specifically, a `Gaussian function <http://en.wikipedia.org/wiki/Gaussian_function>`_ is used to calculate the influence of a given feature occurrence at a given distance. The resulting coverage is normalized to have values within in the [0,1] range.
+Calculation is done by taking a given radius around each cell of the resulting grid coverage and adding up the values from features falling within that radius. The "influence" of a feature is determined by its distance to the cell. Specifically, a `Gaussian function <http://en.wikipedia.org/wiki/Gaussian_function>`_ is used to calculate the influence of a given feature occurrence at a given distance. 
 
 .. figure:: img/heatmap.png
 
@@ -22,7 +22,11 @@ Features can be weighted to indicate that the influence of a feature should be l
 
    *gs:Heatmap weighted*
 
-.. todo:: These figures look great, but they show values in the 1-3 range, which conflict with the idea of (0,1) normalization. Change to reflect this?
+Once the density coverage has been computed, it is normalized to have values within in the [0,1] range.
+
+.. figure:: img/heatmapnormalized.png
+
+   *gs:Heatmap final normalized output*
 
 Inputs and outputs
 ------------------
@@ -88,12 +92,7 @@ Usage notes
 * The values of the weighting attribute  (``weightAttr``) must resolve to a numeric value, otherwise the feature will have a weight value of 1.
 * The values of the weighting attribute (``weightAttr``) do not affect the range of values in the output grid coverage, as the range is always normalized to 1. The resulting coverage represents the probability distribution of the process represented by the input feature collection.
 * While this process is typically used with point features, all types of features are accepted. If features other than points are used, the centroid of the geometry is used as its representative point.
-
-.. todo::
-
-   Don't follow this, please revise. What ``ReferenceEnvelope``?
-
-   * The output layer is produced in the CS of the selected ``ReferenceEnvelope``. Input features can have a different CRS, and they will be reprojected if needed.
+* The output coverage is produced in the CRS of the envelope selected in the ``outputBBOX`` parameter. Input features can have a different CRS, and they will be reprojected if needed into that output CRS before computing the heatmap.
 
 
 Examples
@@ -169,10 +168,5 @@ The resulting heatmap has a slightly different output than before.
 
 Related processes
 -----------------
-
-.. todo::
-
-   ``ReferenceEnvelope`` is never explained, so please do so or alternately remove/rephrase this entry.
-
-   * Since this process requires an input of type ``ReferenceEnvelope`` to set the area covered by the output grid coverage, the ``gs:Bounds`` process can be used to extract the required extent from a given feature collection. Particularly, it is of interest to extract the envelope of the same layer used as input for the ``gs:Heatmap`` process so the extent of the output coverage is that of the input feature collection.
+* This process requires an input of type ``ReferenceEnvelope`` (the ``outputBBOX`` parameter). The ``ReferenceEnvelope`` class represents a bounding box expressed as its four coordinates (``minX, maxX, minY, maxY``) and a CRS. This parameter is used to set the area covered by the output grid coverage.  Instead of manually entering the coordinates and CRS of the parameter, the ``gs:Bounds`` process can be used to extract the required envelope from a given feature collection. Particularly, it is of interest to extract the envelope of the same layer used as input for the ``gs:Heatmap`` process so the envelope of the output coverage is that of the input feature collection.
 

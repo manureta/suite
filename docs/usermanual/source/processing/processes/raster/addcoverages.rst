@@ -8,9 +8,7 @@ AddCoverages
 Description
 -----------
 
-The ``gs:AddCoverages`` process takes two input grid coverages and performs a cell-by-cell addition on them, generating a new grid coverage. Each cell in the output grid has the value resulting from the addition of the corresponding values for that same cell in the input grids.
-
-.. todo:: What attribute? What happens if multiband?
+The ``gs:AddCoverages`` process takes two input grid coverages and performs a cell-by-cell addition on them, generating a new grid coverage. Each cell in the output grid has the value resulting from the addition of the corresponding values for that same cell in the input grids. Coverages are assumed to have a single band. If multiband layers are entered, only the values in the first band will be used.
 
 .. figure:: img/addcoverages.png
 
@@ -59,13 +57,6 @@ Usage notes
 
 * Both input coverages must have the same bounding box and the same cell size. That means they must have the same width and height (in cells), so that their cell locations match exactly.
 * The output coverage will have the same bounding box and cell size as the input.
-
-.. todo::
-
-   The original note here seems a bit abstruse. Is this a common use case? I'd like more details here, or convert this into an example.
-
-   "* Given two probability raster with values in the (0,1) range (such as those produced by the :ref:`gs:Heatmap <processing.processes.vector.heatmap>` process), applying this process to them represents the equivalent of a fuzzy logic OR operation."
-
 
 .. todo:: Example needed.
 

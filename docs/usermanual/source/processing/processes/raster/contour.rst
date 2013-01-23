@@ -118,7 +118,7 @@ Creating temperature contour lines
 
 The following example chains the ``gs:Contour`` process with the :ref:`gs:BarnesSurface <processing.processes.vector.barnessurface>` process to extract contour lines from a points feature collection. The ``gs:BarnesSurface`` process computes an intermediate raster layer that is then converted back to contour lines by the ``gs:Contour`` process.
 
-Contour lines are computed for an interval of 1 degrees, and the computation is limited to the area around Spain.
+Contour lines are computed for an interval of 2 degrees, and the computation is limited to the area around the Iberian Peninsula.
 
 .. note:: The detail of contour lines is directly affected by the interpolation process, since that defines the resolution of the intermediate coverage from which contour lines are calculated.
 
@@ -156,7 +156,7 @@ Input parameters for ``gs:Contour``.
 * ``smooth``: False
 * ``roi``: [Blank]
 
-.. todo:: File missing: ``:download:`Download complete chained XML request <xml/contourexample.xml>`.``
+:download:`Download complete chained XML request <xml/contour2.xml>`.
 
 .. figure:: img/contourexampleUI2.png
 
@@ -172,7 +172,6 @@ The output of the chained process looks like this:
 
    *gs:Contour example output*
 
-.. todo:: This image would be vastly improved by showing the original temperature readings, as well as a labels on the contour lines. Also fewer lines.
 
 Related processes
 -----------------

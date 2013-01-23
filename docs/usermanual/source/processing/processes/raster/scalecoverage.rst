@@ -110,12 +110,10 @@ Input parameters:
 
    *gs:ScaleCoverage example parameters*
 
-The resulting raster looks like this:
+The following figure shows the resulting grid coverage (right) along with the original input coverage (left):
 
 .. figure:: img/scalecoverageexample.png
 
    *gs:ScaleCoverage example output*
-
-.. todo:: Maybe show a comparison, perhaps zoomed in to show detail?
 
 Note the lower resolution of the output when compared to the original. The output here appears "blockier", owing to its larger cell size.

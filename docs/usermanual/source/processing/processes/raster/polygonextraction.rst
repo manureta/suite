@@ -14,15 +14,11 @@ The ``gs:PolygonExtraction`` process takes an input raster and creates a polygon
 
    *gs:PolygonExtraction*
 
-.. todo:: This graphic is incorrect (look at the 2).
-
- The process can also perform a reclassification to group cells within a set of ranges so they are considered as belonging to the same class, which is useful when working with grid coverages such as a DEM (digital elevation model) or other raster with a continuous (non-discrete) variable, where neighbor pixels usually don't share the same values.
+The process can also perform a reclassification to group cells within a set of ranges so they are considered as belonging to the same class, which is useful when working with grid coverages such as a DEM (digital elevation model) or other raster with a continuous (non-discrete) variable, where neighbor pixels usually don't share the same values.
 
 .. figure:: img/polygonextraction2.png
 
    *gs:PolygonExtraction using predefined ranges*
-
-.. todo:: This graphic is also incorrect (see 6).
 
 Certain values can be left outside of the polygon extraction process, defining them as ``NODATA`` values. Cells with those values will be ignored and no polygon will be created from them.
 
@@ -88,10 +84,7 @@ Outputs
 Usage notes
 -----------
 
-* The ``nodata`` parameter is entered as a string of comma-separated values. For instance: ``"0, -1, 2.2"``.
-
-.. todo:: Are the quotes required?
-
+* The ``nodata`` parameter is entered as a string of comma-separated values. For instance: ``0, -1, 2.2``.
 * If the ``ranges`` parameter is used, the value of the ``nodata`` parameter is ignored. All values not belonging to any of the defined ranges will be considered no-data values.
 * If the ``ranges`` parameter is used, the ``value`` attribute in the output feature collection will contain the (zero-based) index of the range, not the original value of the cells in the grid coverage.
 * Non-adjacent regions with the same value will yield different features.
