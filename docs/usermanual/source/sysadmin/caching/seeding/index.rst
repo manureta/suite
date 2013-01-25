@@ -17,7 +17,4 @@ The first case, generating tiles by the system administrator in a batch operatio
 
    considerations
    gui
-
-.. todo::
-
    rest
