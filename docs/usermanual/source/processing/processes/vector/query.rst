@@ -1,5 +1,7 @@
 .. _processing.processes.vector.query:
 
+.. warning:: Document Status: **Requires copyedit review (MP)**
+
 Query
 =====
 

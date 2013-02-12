@@ -1,6 +1,5 @@
 .. _processing.processes.vector.barnessurface:
 
-.. warning:: Document Status: **Requires questions answered and images edited (MP)**
 
 BarnesSurface
 =============
@@ -160,11 +159,12 @@ The resulting coverage looks like this, displayed along with the input points:
 
    *gs:BarnesSurface example output*
 
-.. todo:: Shouldn't this graphic show a smooth gradient, not stepped?
-
 
 Related processes
 -----------------
 
 *  The :ref:`gs:VectorToRaster <processing.processes.vector.vectortoraster>` process performs a similar vector-to-raster conversion, but does not use interpolation.
+
+* This process requires an input of type ``ReferenceEnvelope`` (the ``outputBBOX`` parameter). The ``ReferenceEnvelope`` class represents a bounding box expressed as its four coordinates (``minX, maxX, minY, maxY``) and a CRS. This parameter is used to set the area covered by the output grid coverage.  Instead of manually entering the coordinates and CRS of the parameter, the ``gs:Bounds`` process can be used to extract the required envelope from a given feature collection. Particularly, it is of interest to extract the envelope of the same layer used as input for the ``gs:BarnesSurface`` process so the envelope of the output coverage is that of the input feature collection.
+
 
