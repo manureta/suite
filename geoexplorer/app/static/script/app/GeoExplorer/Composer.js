@@ -434,7 +434,12 @@ GeoExplorer.Composer = Ext.extend(GeoExplorer, {
      * Create the various parts that compose the layout.
      */
     initPortal: function() {
-        
+        var logo=new Ext.Panel({
+            id:"logo-header",
+            region:"north",
+            cls:"logo-header",
+            height:60
+        });
         var westPanel = new gxp.CrumbPanel({
             id: "tree",
             region: "west",
@@ -564,7 +569,7 @@ GeoExplorer.Composer = Ext.extend(GeoExplorer, {
             activeItem: 0
         });
         
-        this.portalItems = [{
+        this.portalItems = [logo,{
             region: "center",
             layout: "border",
             tbar: toolbar,
