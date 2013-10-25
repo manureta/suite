@@ -23,73 +23,28 @@
             proxy: "../proxy/?url=",
             printService: "/geoserver/pdf/",
             about: {
-                title: "GeoExplorer Demo Map",
-                "abstract": "This is a demonstration of GeoExplorer, an " +
-                    "application for assembling and publishing web-based maps. " +
-                    "After adding layers to the map, use the 'Publish map' " +
-                    "tool to embed this map in any web page.",
-                contact: "For more information, contact <a href='http://www.geolibres.com.ar'>Geolibres</a>."
+                title: "GeoExplorer Demo",
+                "abstract": "Esta es una demostracion de geoexplorer, una " +
+                    "aplicacion para crear y publicar mapas basados en la web. " +
+                    "Despues de agregar capas al mapa, usa la opcion 'Exportar mapa' " +
+                    "para embeber este mapa en cualquier pagina web.",
+                contact: "Para mas informacion, contactar <a href='http://www.geolibres.com.ar'>Geolibres</a>."
             },
             defaultSourceType: "gxp_wmscsource",
             sources: {
-            local: {
-        //            ptype: "gxp_wmscsource",
+                local: {
+                    ptype: "gxp_wmssource", // puse este para que no cachee, es importante para las capas q se editan
                     url: "http://www.sstuv.gba.gob.ar/geoserver/ows",
-        //            version: "1.1.0"          
-        },
-            osm: {
-                    ptype: "gxp_osmsource"
-            },
-            google: {
-                    ptype: "gxp_googlesource"
-             },
-        geointa:{
-                        ptype: "gxp_wmssource",
-                        url: "http://geointa.inta.gov.ar/geoserver/wms",
-                        version: "1.1.1",
-                        title: "GeoINTA"
-                },
-        arba:{  
-            ptype: "gxp_wmssource",
-            url: "http://cartoservices.arba.gov.ar/geoserver/wms",
-            version: "1.1.1",
-            title: "ARBA"
-        },
-        mosp:{  
-            ptype: "gxp_wmssource",
-            url: "http://www.mosp.gba.gov.ar/wms_hidraulica/cgi-bin/mapserv.exe?map=/ms4w/apps/m/wms.map",
-            version: "1.1.1",
-            title: "Min. Obras y Salud PÃºblica"
-        },
-            urbasig_NUEVO:{
-                    ptype: "gxp_wmssource",
-                    url: "http://sig.gobierno.gba.gov.ar:8080/geoserver/urbasig/wms",
-                    version: "1.1.1",
-                    title: "urBAsig Interno"
-            },
-        urbasig:{
-            ptype: "gxp_wmssource",
-            url: "http://www.mosp.gba.gov.ar/webmapping/cgi-bin/urbasig", //"http://200.85.153.133/cgi-bin/urbasig?",
-            version: "1.1.1",
-                    title: "urBAsig PÃºblico"
-        },
-    /*                   local: {
-                    url: "/geoserver/ows",
-                    title: "Local GeoServer",
-                    ptype: "gxp_wmscsource"
-                },
-      */          suite: {  
-                    url: "http://v2.suite.opengeo.org/geoserver/ows",
-                    title: "Remote Suite GeoServer"
-                },
-                mapquest: {
-                    ptype: "gxp_mapquestsource"
+                    //version: "1.1.0"          
                 },
                 osm: {
                     ptype: "gxp_osmsource"
                 },
                 google: {
                     ptype: "gxp_googlesource"
+                },
+                mapquest: {
+                    ptype: "gxp_mapquestsource"
                 },
                 bing: {
                     ptype: "gxp_bingsource"
@@ -99,22 +54,44 @@
                 },
                 ol: {
                     ptype: "gxp_olsource"
-                }
+                },
+                geointa:{
+                    ptype: "gxp_wmssource",
+                    url: "http://geointa.inta.gov.ar/geoserver/wms",
+                    version: "1.1.1",
+                    title: "GeoINTA"
+                },
+                arba:{  
+                    ptype: "gxp_wmssource",
+                    url: "http://cartoservices.arba.gov.ar/geoserver/wms",
+                    version: "1.1.1",
+                    title: "ARBA"
+                },
+                mosp:{  
+                    ptype: "gxp_wmssource",
+                    url: "http://www.mosp.gba.gov.ar/wms_hidraulica/cgi-bin/mapserv.exe?map=/ms4w/apps/m/wms.map",
+                    version: "1.1.1",
+                    title: "Min. Obras y Salud PÃºblica"
+                },
+                urbasig_NUEVO:{
+                    ptype: "gxp_wmssource",
+                    url: "http://sig.gobierno.gba.gov.ar:8080/geoserver/urbasig/wms",
+                    version: "1.1.1",
+                    title: "urBAsig Interno"
+                },
+                urbasig:{
+                    ptype: "gxp_wmssource",
+                    url: "http://www.mosp.gba.gov.ar/webmapping/cgi-bin/urbasig", //"http://200.85.153.133/cgi-bin/urbasig?",
+                    version: "1.1.1",
+                    title: "urBAsig PÃºblico"
+                },
+                /*local: {
+                    url: "/geoserver/ows",
+                    title: "Local GeoServer",
+                    ptype: "gxp_wmscsource"
+                },*/
+                
             },
-/*groups : {
-"default":"Capas del Usuario",
-"muestra":"Precarga / Muestra",
-"regulacion":"Regulación Urbana y Dominial",
-"planfamilia":"Plan Familia Propietaria",
-"titulacion":"Titulación de Inmuebles",
-"habitacional":"Programas Habitacionales",
-"infraestructura":"Infraestructura Urbana y Territorial",
-"reconquista":"Proyecto Reconquista",
-"linamientos":"Proyecto Lineamientos",
-"otros":"Otras fuentes",
-"servicios":"Servicios IDERA",
-"background":"Capas Base",exclusive: true
-},*/
             map: {
                 projection: "EPSG:900913",
 
@@ -123,35 +100,31 @@
                     title: "MapQuest OpenStreetMap",
                     name: "osm",
                     group: "background"
-                },
-{
+                },{
                     source: "osm",
                     title: "OpenStreetMap",
                     name: "mapnik",
                     group: "background"
-                },
-
-{                   source: "google",
+                },{
+                    source: "google",
                     title: "Google Físico",
                     name: "TERRAIN",
                     group: "background"
-                },
-{                   source: "google",
+                },{               
+                    source: "google",
                     title: "Google Callejero",
                     name: "ROADMAP",
                     group: "background"
-                },
-{                   source: "google",
+                },{   source: "google",
                     title: "Google Satelital",
                     name: "SATELLITE",
                     group: "background"
-                },
-{                   source: "google",
-                    title: "Google Hybrid",
+                },{
+                    source: "google",
+                    title: "Google Hibrido",
                     name: "HYBRID",
                     group: "background"
-                },
-{
+                },{
                     source: "ol",
                     group: "background",
                     fixed: true,
@@ -159,35 +132,163 @@
                     args: [
                         "None", {visibility: false}
                     ]
-
                 },{
-            source:'local',
-            name:'sstuyv:reconquista_aip',
-            group:'reconquista',
-            args: [{disabled: true}]
-        },{
+                    source:'local',
+                    name:'sstuyv:zonas_espacios',
+                    group: 'regulacion'
+                },{
+                    source:'local',
+                    name:'sstuyv:tierra pfp',
+                    group: 'planfamilia'
+                },{
+                    source:'local',
+                    name:'sstuyv:titulacion inmuebles',
+                    group: 'titulacion'
+                },{
+                    source:'local',
+                    name:'sstuyv:conflictos_habitacionales_22185',
+                    group: 'habitacional'
+                },{
+                    source:'local',
+                    name:'sstuyv:prosede',
+                    group: 'habitacional'
+                },{
+                    source:'local',
+                    name:'sstuyv:Informe Urbanístico DPIUT',
+                    group: 'urbanismo'
+                },
+
+                // reconquista
+                {
+                    source:'local',
+                    name:'sstuyv:reconquista_aip',
+                    group:'reconquista',
+                    visibility:false
+                },{
                     source:'local',
                     name:'sstuyv:reconquista_limite_dominio',
                     group:'reconquista',
-                    args: [{disabled: true}]
+                    visibility:false
                 },{
                     source:'local',
                     name:'sstuyv:reconquista_barrios',
                     group:'reconquista',
-                    args: [{disabled: false}]
+                    visibility:false
                 },
-        {
-            source:'urbasig_NUEVO',
-            name:'zonas_espacios',
-            group: 'otros'
-        },
-        {
-            source:'urbasig_NUEVO',
-            name:'zonificacion'
-        }   
-        ],
-                center: [-6641889.0209892,-4482042.9980017],
+                // lineamientos
+                {
+                    source:'local',
+                    name:'sstuyv:alumnos_establecimientos_2007',
+                    group:'lineamientos',
+                    visibility:false
+                },{
+                    source:'local',
+                    name:'sstuyv:analfabetismo2010',
+                    group:'lineamientos',
+                    visibility:false
+                },{
+                    source:'local',
+                    name:'sstuyv:analfabetismo_2001',
+                    group:'lineamientos',
+                    visibility:false
+                },{
+                    source:'local',
+                    name:'sstuyv:edad_poblacion_2010',
+                    group:'lineamientos',
+                    visibility:false
+                },{
+                    source:'local',
+                    name:'sstuyv:habitantes_cama_2001',
+                    group:'lineamientos',
+                    visibility:false
+                },{
+                    source:'local',
+                    name:'habitantes_cama_2010',
+                    group:'sstuyv:lineamientos',
+                    visibility:false
+                },{
+                    source:'local',
+                    name:'sstuyv:habitantes_vivienda_2001',
+                    group:'lineamientos',
+                    visibility:false
+                },{
+                    source:'local',
+                    name:'sstuyv:habitantes_vivienda_2010',
+                    group:'lineamientos',
+                    visibility:false
+                },{
+                    source:'local',
+                    name:'sstuyv:hogares_sin_agua_2010',
+                    group:'lineamientos',
+                    visibility:false
+                },{
+                    source:'local',
+                    name:'sstuyv:hogares_sin_agua_abs_2010',
+                    group:'lineamientos',
+                    visibility:false
+                },{
+                    source:'local',
+                    name:'sstuyv:hogares_sin_cloaca_abs_2010',
+                    group:'lineamientos',
+                    visibility:false
+                },{
+                    source:'local',
+                    name:'sstuyv:hogares_sin_agua_por_2010',
+                    group:'lineamientos',
+                    visibility:false
+                },{
+                    source:'local',
+                    name:'sstuyv:hogares_vivienda_2010',
+                    group:'lineamientos',
+                    visibility:false
+                },{
+                    source:'local',
+                    name:'sstuyv:matricula_estatal_2009',
+                    group:'lineamientos',
+                    visibility:false
+                },{
+                    source:'local',
+                    name:'sstuyv:poblacion_0_14_2010',
+                    group:'lineamientos',
+                    visibility:false
+                },{
+                    source:'local',
+                    name:'sstuyv:poblacion_15_64_2010',
+                    group:'lineamientos',
+                    visibility:false
+                },{
+                    source:'local',
+                    name:'sstuyv:poblacion_65_y_mas_2010',
+                    group:'lineamientos',
+                    visibility:false
+                },{
+                    source:'local',
+                    name:'sstuyv:poblacion_extranjera_2001_2010',
+                    group:'lineamientos',
+                    visibility:false
+                },{
+                    source:'local',
+                    name:'sstuyv:segmento_edad_mayoritario_2010',
+                    group:'lineamientos',
+                    visibility:false
+                },{
+                    source:'local',
+                    name:'sstuyv:viviendas_inconvenientes_2010',
+                    group:'lineamientos',
+                    visibility:false
+                },
+                // otros    
+                {
+                    source:'local',
+                    name:'villa y asentamientos_UNGS',
+                    group: 'otros'
+                },{
+                    source:'urbasig_NUEVO',
+                    name:'zonificacion'
+                }   
+            ],
+            center: [-6641889.0209892,-4482042.9980017],
             zoom: 6
-            }
-        });
+        }
+    });
     </script>
