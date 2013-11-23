@@ -18,6 +18,10 @@
             <fileMode>0755</fileMode>
             <outputDirectory>/bin</outputDirectory>
         </fileSet>
+        <fileSet>
+            <directory>sdk/jetty</directory>
+            <outputDirectory>/jetty</outputDirectory>
+        </fileSet>
     </fileSets>
     <files>
         <file>

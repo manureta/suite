@@ -8,13 +8,17 @@
  <parent>
    <groupId>org.opengeo</groupId>
    <artifactId>suite</artifactId>
+<<<<<<< HEAD
    <version>3.1</version>
 
+=======
+   <version>4.0.1</version>
+>>>>>>> 025f5d61d07ceae4991e399d4458e22b91f4ad4d
  </parent>
 
  <groupId>org.opengeo</groupId>
  <artifactId>geowebcache</artifactId>
- <packaging>jar</packaging>
+ <packaging>war</packaging>
  <name>OpenGeo Suite GeoWebCache</name>
 
  <dependencies>
@@ -43,6 +47,21 @@
           </execution>
         </executions>
      </plugin>
+     <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.3</version>
+        <configuration>
+          <warName>geowebcache</warName>
+          <webappDirectory>target/geowebcache</webappDirectory>
+          <overlays>
+            <overlay>
+              <groupId>org.geowebcache</groupId>
+              <artifactId>geowebcache</artifactId>
+            </overlay>
+          </overlays>
+        </configuration>
+      </plugin>
    </plugins>
  </build>
 </project>

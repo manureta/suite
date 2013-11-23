@@ -6,33 +6,44 @@
  <parent>
   <groupId>org.opengeo</groupId>
   <artifactId>suite</artifactId>
+<<<<<<< HEAD
   <version>3.1</version>
+=======
+  <version>4.0.1</version>
+>>>>>>> 025f5d61d07ceae4991e399d4458e22b91f4ad4d
  </parent>
 
  <groupId>org.opengeo</groupId>
- <artifactId>og-jetty</artifactId>
+ <artifactId>jetty</artifactId>
  <packaging>jar</packaging>
  <name>OpenGeo Suite Jetty Module</name>
 
  <dependencies>
   <dependency>
-    <groupId>org.ini4j</groupId>
-    <artifactId>ini4j</artifactId>
-    <version>0.5.1</version>
+   <groupId>org.eclipse.jetty</groupId>
+   <artifactId>jetty-server</artifactId>
   </dependency>
   <dependency>
-   <groupId>org.mortbay.jetty</groupId>
-   <artifactId>jetty</artifactId>
+   <groupId>org.eclipse.jetty</groupId>
+   <artifactId>jetty-servlet</artifactId>
   </dependency>
   <dependency>
-   <groupId>org.mortbay.jetty</groupId>
+   <groupId>org.eclipse.jetty</groupId>
+   <artifactId>jetty-deploy</artifactId>
+  </dependency>
+  <dependency>
+   <groupId>org.eclipse.jetty</groupId>
    <artifactId>jetty-util</artifactId>
   </dependency>
   <dependency>
-   <groupId>org.mortbay.jetty</groupId>
-   <artifactId>jetty-start</artifactId>
+   <groupId>org.eclipse.jetty</groupId>
+   <artifactId>jetty-xml</artifactId>
   </dependency>
   <dependency>
+   <groupId>org.eclipse.jetty</groupId>
+   <artifactId>jetty-start</artifactId>
+  </dependency>
+  <!--dependency>
    <groupId>tomcat</groupId>
    <artifactId>jasper-runtime</artifactId>
    <version>5.5.15</version>
@@ -93,7 +104,7 @@
    <groupId>org.slf4j</groupId>
    <artifactId>slf4j-jcl</artifactId>
    <version>1.0.1</version>
-  </dependency>
+  </dependency-->
  </dependencies>
 
  <build>
@@ -105,7 +116,7 @@
       </configuration>
       <executions>
         <execution>
-          <phase>install</phase>
+          <phase>package</phase>
           <goals>
             <goal>copy-dependencies</goal>
           </goals>
@@ -113,7 +124,7 @@
       </executions>
     </plugin>
     <plugin>
-       <artifactId>maven-antrun-plugin</artifactId>
+      <artifactId>maven-antrun-plugin</artifactId>
       <executions>
         <execution>
           <id>clean</id>
@@ -121,6 +132,23 @@
           <configuration>
             <tasks>
               <delete dir="${basedir}/lib" includes="*.jar"/>
+              <delete file="${basedir}/start.jar" />
+            </tasks>
+          </configuration>
+          <goals>
+            <goal>run</goal>
+          </goals>
+        </execution>
+        <execution>
+          <id>install</id>
+          <phase>install</phase>
+          <configuration>
+            <tasks>
+              <move file="${basedir}/lib/jetty-start-${jetty.version}.jar"
+                  tofile="${basedir}/start.jar"/>
+              <move tofile="${basedir}/lib/servlet-api-2.5.jar">
+                <fileset dir="${basedir}/lib" includes="javax.servlet-2.5.0.*.jar"/>
+              </move>
             </tasks>
           </configuration>
           <goals>

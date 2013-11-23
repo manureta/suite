@@ -1,0 +1,20 @@
+<assembly>
+  <id>wps</id>
+  <formats>
+    <format>zip</format>
+  </formats>
+  <fileSets>
+    <fileSet>
+      <directory>assembly/target/dependency</directory>
+      <outputDirectory>/</outputDirectory>
+      <includes>
+        <include>wps*</include>
+        <include>web-wps*</include>
+        <include>web-wps-ext*</include>
+        <include>gt-xsd-wps*</include>
+        <include>net.opengis.wps*</include>
+        <include>serializer*</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+</assembly>

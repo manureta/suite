@@ -4,7 +4,11 @@
     <parent>
         <groupId>org.opengeo</groupId>
         <artifactId>suite</artifactId>
+<<<<<<< HEAD
         <version>3.1</version>
+=======
+        <version>4.0.1</version>
+>>>>>>> 025f5d61d07ceae4991e399d4458e22b91f4ad4d
     </parent>
     <groupId>org.opengeo</groupId>
     <artifactId>sdk</artifactId>
@@ -29,7 +33,6 @@
         </repository>
     </repositories>
     <properties>
-        <jetty-version>7.1.6.v20100715</jetty-version>
         <geoexplorer>../geoexplorer</geoexplorer>
         <gxp>${geoexplorer}/app/static/externals/gxp</gxp>
     </properties>
@@ -41,33 +44,23 @@
         </dependency>
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-server</artifactId>
-            <version>7.4.5.v20110725</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-xml</artifactId>
-            <version>7.4.5.v20110725</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-continuation</artifactId>
-            <version>${jetty-version}</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-server</artifactId>
-            <version>${jetty-version}</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-xml</artifactId>
-            <version>${jetty-version}</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-servlet</artifactId>
-            <version>${jetty-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-client</artifactId>
         </dependency>
         <dependency>
             <groupId>org.codehaus.cargo</groupId>

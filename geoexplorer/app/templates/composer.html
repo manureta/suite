@@ -8,10 +8,13 @@
     <link rel="stylesheet" type="text/css" href="../externals/printpreview/resources/css/printpreview.css">
 
     <script>
+<<<<<<< HEAD
         // optionally set locale based on query string parameter
         if (GeoExt.Lang) {
         GeoExt.Lang.set(OpenLayers.Util.getParameters()["locale"] || GeoExt.Lang.locale);
         }
+=======
+>>>>>>> 025f5d61d07ceae4991e399d4458e22b91f4ad4d
         Ext.BLANK_IMAGE_URL = "../theme/app/img/blank.gif";
         OpenLayers.ImgPath = "../theme/app/img/";
         // optionally set locale based on query string parameter
@@ -23,19 +26,46 @@
             proxy: "../proxy/?url=",
             printService: "/geoserver/pdf/",
             about: {
+<<<<<<< HEAD
                 title: "GeoExplorer Demo",
                 "abstract": "Esta es una demostracion de geoexplorer, una " +
                     "aplicacion para crear y publicar mapas basados en la web. " +
                     "Despues de agregar capas al mapa, usa la opcion 'Exportar mapa' " +
                     "para embeber este mapa en cualquier pagina web.",
                 contact: "Para mas informacion, contactar <a href='http://www.geolibres.com.ar'>Geolibres</a>."
+=======
+                title: "GeoExplorer Demo Map",
+                "abstract": "This is a demonstration of GeoExplorer, an " +
+                    "application for assembling and publishing web-based maps. " +
+                    "After adding layers to the map, use the 'Publish map' " +
+                    "tool to embed this map in any web page.",
+                contact: "For more information, contact <a href='http://boundlessgeo.com'>Boundless</a>."
+>>>>>>> 025f5d61d07ceae4991e399d4458e22b91f4ad4d
             },
             defaultSourceType: "gxp_wmscsource",
             sources: {
                 local: {
+<<<<<<< HEAD
                     ptype: "gxp_wmssource", // puse este para que no cachee, es importante para las capas q se editan
                     url: "http://www.sstuv.gba.gob.ar/geoserver/ows",
                     //version: "1.1.0"          
+=======
+                    url: "/geoserver/ows",
+                    title: "Local GeoServer",
+                    ptype: "gxp_wmscsource"
+                },
+                csw: {
+                    url: "/geoserver/csw",
+                    ptype: "gxp_cataloguesource",
+                    yx: {'urn:x-ogc:def:crs:EPSG:6.11:4326': true}
+                },
+                suite: {
+                    url: "http://v2.suite.opengeo.org/geoserver/ows",
+                    title: "Remote Suite GeoServer"
+                },
+                mapquest: {
+                    ptype: "gxp_mapquestsource"
+>>>>>>> 025f5d61d07ceae4991e399d4458e22b91f4ad4d
                 },
                 osm: {
                     ptype: "gxp_osmsource"
