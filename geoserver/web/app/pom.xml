@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.opengeo.geoserver</groupId>
     <artifactId>web</artifactId>
-    <version>3.0.2</version>
+    <version>3.1</version>
 
   </parent>
 
@@ -73,6 +73,23 @@
       <groupId>org.gdal</groupId>
       <artifactId>gdal</artifactId>
       <version>1.9.1</version>
+    </dependency>
+    
+    <!-- Mapmeter -->
+    <dependency>
+      <groupId>org.opengeo.console</groupId>
+      <artifactId>monitor-console</artifactId>
+      <version>${gs.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.geoserver.extension</groupId>
+      <artifactId>monitor-core</artifactId>
+      <version>${gs.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.maxmind</groupId>
+      <artifactId>geoip</artifactId>
+      <version>1.2.3</version>
     </dependency>
     
     <!-- opengeo specific stuff -->
@@ -230,28 +247,7 @@
 
   <profiles>
      <profile>
-       <id>analytics</id>
-       <dependencies> 
-         <dependency>
-           <groupId>org.opengeo.geoserver</groupId>
-           <artifactId>analytics</artifactId>
-           <version>${gs.version}</version>
-         </dependency>
-       </dependencies> 
-     </profile>
-     <profile>
        <id>ee</id>
-       <dependencies> 
-         <dependency>
-           <groupId>org.geoserver.extension</groupId>
-           <artifactId>control-flow</artifactId>
-         </dependency>
-         <dependency>
-           <groupId>org.opengeo.geoserver</groupId>
-           <artifactId>analytics</artifactId>
-           <version>${gs.version}</version>
-         </dependency>
-        </dependencies> 
      </profile>
      <profile>
        <id>cloud</id>
